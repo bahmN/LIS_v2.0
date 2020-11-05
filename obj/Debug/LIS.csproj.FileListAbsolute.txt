@@ -26,10 +26,12 @@ D:\C_Sharp\LIS\bin\Debug\System.Memory.xml
 D:\C_Sharp\LIS\bin\Debug\System.Numerics.Vectors.xml
 D:\C_Sharp\LIS\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\C_Sharp\LIS\obj\Debug\LIS.csprojAssemblyReference.cache
-D:\C_Sharp\LIS\obj\Debug\LIS.frmAuthorization.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.Properties.Resources.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.csproj.GenerateResource.cache
 D:\C_Sharp\LIS\obj\Debug\LIS.csproj.CoreCompileInputs.cache
 D:\C_Sharp\LIS\obj\Debug\LIS.csproj.CopyComplete
 D:\C_Sharp\LIS\obj\Debug\LIS.exe
 D:\C_Sharp\LIS\obj\Debug\LIS.pdb
+D:\C_Sharp\LIS\obj\Debug\LIS.frmAuthorizaton.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.frmMenuAdm.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.Errors.ErrorConnection.resources

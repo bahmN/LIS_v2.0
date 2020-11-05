@@ -16,7 +16,7 @@ namespace LIS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAuthorization());
+            Application.Run(new frmAuthorizaton());
         }
     }
 }

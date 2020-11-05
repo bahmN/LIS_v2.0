@@ -92,16 +92,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAuthorization.cs">
+    <Compile Include="Errors\ErrorConnection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAuthorization.Designer.cs">
-      <DependentUpon>frmAuthorization.cs</DependentUpon>
+    <Compile Include="Errors\ErrorConnection.Designer.cs">
+      <DependentUpon>ErrorConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuthorizaton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAuthorizaton.Designer.cs">
+      <DependentUpon>frmAuthorizaton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuAdm.Designer.cs">
+      <DependentUpon>frmMenuAdm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAuthorization.resx">
-      <DependentUpon>frmAuthorization.cs</DependentUpon>
+    <EmbeddedResource Include="Errors\ErrorConnection.resx">
+      <DependentUpon>ErrorConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAuthorizaton.resx">
+      <DependentUpon>frmAuthorizaton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuAdm.resx">
+      <DependentUpon>frmMenuAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
