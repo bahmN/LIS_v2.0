@@ -28,6 +28,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuAdm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTopColor = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.bttnRollUp = new System.Windows.Forms.PictureBox();
@@ -112,7 +114,6 @@
             // 
             // labelPanelAdm
             // 
-            this.labelPanelAdm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPanelAdm.AutoSize = true;
             this.labelPanelAdm.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPanelAdm.Location = new System.Drawing.Point(484, 18);
@@ -297,6 +298,7 @@
             this.bttnDelete.TabIndex = 4;
             this.bttnDelete.Text = "Удалить";
             this.bttnDelete.UseVisualStyleBackColor = true;
+            this.bttnDelete.Click += new System.EventHandler(this.bttnDelete_Click);
             this.bttnDelete.MouseEnter += new System.EventHandler(this.bttnDelete_MouseEnter);
             this.bttnDelete.MouseLeave += new System.EventHandler(this.bttnDelete_MouseLeave);
             // 
@@ -317,6 +319,7 @@
             this.bttnChange.TabIndex = 4;
             this.bttnChange.Text = "Изменить";
             this.bttnChange.UseVisualStyleBackColor = true;
+            this.bttnChange.Click += new System.EventHandler(this.bttnChange_Click);
             this.bttnChange.MouseEnter += new System.EventHandler(this.bttnChange_MouseEnter);
             this.bttnChange.MouseLeave += new System.EventHandler(this.bttnChange_MouseLeave);
             // 
@@ -337,6 +340,7 @@
             this.bttnAdd.TabIndex = 4;
             this.bttnAdd.Text = "Добавить";
             this.bttnAdd.UseVisualStyleBackColor = true;
+            this.bttnAdd.Click += new System.EventHandler(this.bttnAdd_Click);
             this.bttnAdd.MouseEnter += new System.EventHandler(this.bttnAdd_MouseEnter);
             this.bttnAdd.MouseLeave += new System.EventHandler(this.bttnAdd_MouseLeave);
             // 
@@ -379,7 +383,6 @@
             this.pageClients.Controls.Add(this.dataTableClients);
             this.pageClients.Location = new System.Drawing.Point(4, 28);
             this.pageClients.Name = "pageClients";
-            this.pageClients.Padding = new System.Windows.Forms.Padding(3);
             this.pageClients.Size = new System.Drawing.Size(973, 559);
             this.pageClients.TabIndex = 0;
             this.pageClients.Text = "Клиенты";
@@ -387,21 +390,41 @@
             // 
             // dataTableClients
             // 
+            this.dataTableClients.AllowUserToResizeRows = false;
             this.dataTableClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableClients.BackgroundColor = System.Drawing.Color.White;
+            this.dataTableClients.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataTableClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataTableClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataTableClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataTableClients.Location = new System.Drawing.Point(3, 3);
+            this.dataTableClients.Location = new System.Drawing.Point(0, 0);
             this.dataTableClients.Name = "dataTableClients";
-            this.dataTableClients.Size = new System.Drawing.Size(967, 553);
+            this.dataTableClients.ReadOnly = true;
+            this.dataTableClients.Size = new System.Drawing.Size(973, 559);
             this.dataTableClients.TabIndex = 0;
+            this.dataTableClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableClients_CellClick);
             // 
             // pageRequests
             // 
             this.pageRequests.Controls.Add(this.dataTableRequests);
             this.pageRequests.Location = new System.Drawing.Point(4, 28);
             this.pageRequests.Name = "pageRequests";
-            this.pageRequests.Padding = new System.Windows.Forms.Padding(3);
             this.pageRequests.Size = new System.Drawing.Size(973, 559);
             this.pageRequests.TabIndex = 1;
             this.pageRequests.Text = "Заявки";
@@ -413,9 +436,10 @@
             this.dataTableRequests.BackgroundColor = System.Drawing.Color.White;
             this.dataTableRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTableRequests.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataTableRequests.Location = new System.Drawing.Point(3, 3);
+            this.dataTableRequests.Location = new System.Drawing.Point(0, 0);
             this.dataTableRequests.Name = "dataTableRequests";
-            this.dataTableRequests.Size = new System.Drawing.Size(967, 553);
+            this.dataTableRequests.ReadOnly = true;
+            this.dataTableRequests.Size = new System.Drawing.Size(973, 559);
             this.dataTableRequests.TabIndex = 1;
             // 
             // pageServices
@@ -436,8 +460,9 @@
             this.dataTableServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableServices.Location = new System.Drawing.Point(0, 0);
             this.dataTableServices.Name = "dataTableServices";
+            this.dataTableServices.ReadOnly = true;
             this.dataTableServices.Size = new System.Drawing.Size(973, 559);
-            this.dataTableServices.TabIndex = 1;
+            this.dataTableServices.TabIndex = 2;
             // 
             // frmMenuAdm
             // 
@@ -500,7 +525,7 @@
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.DataGridView dataTableClients;
         private System.Windows.Forms.DataGridView dataTableRequests;
-        private System.Windows.Forms.DataGridView dataTableServices;
         private System.Windows.Forms.Button bttnRefresh;
+        private System.Windows.Forms.DataGridView dataTableServices;
     }
 }

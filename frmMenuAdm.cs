@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using LIS.Errors;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
@@ -77,6 +78,27 @@ namespace LIS
             else {
                 labelSearch.ForeColor = ColorTranslator.FromHtml("#5c192f");
             }
+            /*
+             * Searching
+             */
+            if (tabMenu.SelectedTab == pageClients) {
+                MySqlDataAdapter daSearch = new MySqlDataAdapter("SELECT `Номер и серия паспорта`, ФИО, `Дата рождения`, СНИЛС, `Номер телефона`, `Адрес проживания`, `e-mail` FROM клиент " +
+                    "WHERE `Номер и серия паспорта` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR ФИО LIKE '%" + tbSearch.Text + "%' " +
+                      "OR `Дата рождения` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR СНИЛС LIKE '%" + tbSearch.Text + "%' " +
+                      "OR `Номер телефона` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR `Адрес проживания` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR `e-mail` LIKE '%" + tbSearch.Text + "%'", connection);
+                DataTable dtSearch = new DataTable();
+                daSearch.Fill(dtSearch);
+                dataTableClients.DataSource = dtSearch;
+            }
+            else if (tabMenu.SelectedTab == pageRequests) {
+            }
+            else if (tabMenu.SelectedTab == pageServices) {
+            }
+
         }
 
         // Color when mouse move on the button         
@@ -167,12 +189,77 @@ namespace LIS
                 daServices.Fill(dtServices);
                 dataTableServices.DataSource = dtServices;
                 dataTableServices.RowHeadersVisible = false; // Убрать отображение самой левой колонки
+                dataTableServices.AllowUserToAddRows = false;
             }
         }
 
         private void tabMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             bttnRefresh_Click(sender, e);
-        }        
+        }
+
+        /*
+         * Add data
+         */
+        private void bttnAdd_Click(object sender, EventArgs e)
+        {
+            if (tabMenu.SelectedTab == pageClients) {
+                frmAddClient FAC = new frmAddClient();
+                FAC.ShowDialog();
+                if (FAC.DialogResult == DialogResult.OK) {
+                    bttnRefresh_Click(sender, e);
+                }
+            }
+        }
+
+        /*
+         * Change data
+         */
+        private void bttnChange_Click(object sender, EventArgs e)
+        {
+            try {
+                if (tabMenu.SelectedTab == pageClients) {
+                    frmAddClient FAC = new frmAddClient(dataTableClients.SelectedRows[0].Cells[0].Value.ToString());
+                    FAC.tbPassport.Text = dataTableClients.SelectedRows[0].Cells[0].Value.ToString();
+                    FAC.tbFN.Text = dataTableClients.SelectedRows[0].Cells[1].Value.ToString();
+                    FAC.datePickerBirthday.Text = dataTableClients.SelectedRows[0].Cells[2].Value.ToString();
+                    FAC.tbSNILS.Text = dataTableClients.SelectedRows[0].Cells[3].Value.ToString();
+                    FAC.tbNumbPhone.Text = dataTableClients.SelectedRows[0].Cells[4].Value.ToString();
+                    FAC.tbAdress.Text = dataTableClients.SelectedRows[0].Cells[5].Value.ToString();
+                    FAC.tbEMail.Text = dataTableClients.SelectedRows[0].Cells[6].Value.ToString();
+                    FAC.ShowDialog();
+                    if (FAC.DialogResult == DialogResult.OK) {
+                        bttnRefresh_Click(sender, e);
+                    }
+                }
+            }
+            catch {
+                ErrorChangeData errorCD = new ErrorChangeData();
+                errorCD.Show();
+            }
+        }
+
+        private void dataTableClients_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try {
+                dataTableClients.Rows[e.RowIndex].Selected = true;
+            }
+            catch { }
+        }
+
+        private void bttnDelete_Click(object sender, EventArgs e)
+        {
+            if (tabMenu.SelectedTab == pageClients) {
+                for (var i = 0; i < dataTableClients.SelectedRows.Count; i++) {
+                    MySqlCommand commandDP = new MySqlCommand("DELETE FROM клиент WHERE `" + dataTableClients.Columns[0].HeaderText + "` = '" + dataTableClients.SelectedRows[i].Cells[0].Value.ToString() + "'", connection);
+                    commandDP.ExecuteNonQuery();
+                }
+                bttnRefresh_Click(sender, e);
+            }
+            else if (tabMenu.SelectedTab == pageRequests) {
+            }
+            else if (tabMenu.SelectedTab == pageServices) {
+            }
+        }
     }
 }
