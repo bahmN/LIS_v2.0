@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -62,6 +63,7 @@ namespace LIS
             else {
 
             }
+            
         }
 
         private void bttnEnter_MouseMove(object sender, MouseEventArgs e)
