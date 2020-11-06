@@ -132,8 +132,9 @@
             this.bttnOK.Name = "bttnOK";
             this.bttnOK.Size = new System.Drawing.Size(200, 29);
             this.bttnOK.TabIndex = 7;
-            this.bttnOK.Text = "Добавить";
+            this.bttnOK.Text = "bttn";
             this.bttnOK.UseVisualStyleBackColor = true;
+            this.bttnOK.Click += new System.EventHandler(this.bttnOK_Click);
             this.bttnOK.MouseEnter += new System.EventHandler(this.bttnOK_MouseEnter);
             this.bttnOK.MouseLeave += new System.EventHandler(this.bttnOK_MouseLeave);
             // 
@@ -309,6 +310,7 @@
             this.Name = "frmAddClient";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddClient";
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).EndInit();
             this.panelTop.ResumeLayout(false);
@@ -325,20 +327,20 @@
         private System.Windows.Forms.Label labelPanelAdm;
         private System.Windows.Forms.Panel panelTopColor;
         private System.Windows.Forms.Label labelFN;
-        private System.Windows.Forms.TextBox tbFN;
         private System.Windows.Forms.Button bttnOK;
         private System.Windows.Forms.Label labelBirthday;
-        private System.Windows.Forms.MaskedTextBox tbPassport;
-        private System.Windows.Forms.DateTimePicker datePickerBirthday;
         private System.Windows.Forms.Label labelPassport;
         private System.Windows.Forms.Label labelSNILS;
-        private System.Windows.Forms.MaskedTextBox tbSNILS;
         private System.Windows.Forms.Label labelNumbPhone;
-        private System.Windows.Forms.MaskedTextBox tbNumbPhone;
         private System.Windows.Forms.Label labelAdress;
-        private System.Windows.Forms.TextBox tbAdress;
-        private System.Windows.Forms.TextBox tbEMail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bttnCancel;
+        public System.Windows.Forms.TextBox tbFN;
+        public System.Windows.Forms.MaskedTextBox tbPassport;
+        public System.Windows.Forms.DateTimePicker datePickerBirthday;
+        public System.Windows.Forms.MaskedTextBox tbSNILS;
+        public System.Windows.Forms.MaskedTextBox tbNumbPhone;
+        public System.Windows.Forms.TextBox tbAdress;
+        public System.Windows.Forms.TextBox tbEMail;
     }
 }
