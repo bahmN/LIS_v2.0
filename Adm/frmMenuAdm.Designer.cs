@@ -28,8 +28,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuAdm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTopColor = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.bttnRollUp = new System.Windows.Forms.PictureBox();
@@ -56,6 +56,8 @@
             this.dataTableRequests = new System.Windows.Forms.DataGridView();
             this.pageServices = new System.Windows.Forms.TabPage();
             this.dataTableServices = new System.Windows.Forms.DataGridView();
+            this.pageUsers = new System.Windows.Forms.TabPage();
+            this.dataTableUsers = new System.Windows.Forms.DataGridView();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bttnRollUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).BeginInit();
@@ -71,6 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTableRequests)).BeginInit();
             this.pageServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableServices)).BeginInit();
+            this.pageUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTopColor
@@ -369,6 +373,7 @@
             this.tabMenu.Controls.Add(this.pageClients);
             this.tabMenu.Controls.Add(this.pageRequests);
             this.tabMenu.Controls.Add(this.pageServices);
+            this.tabMenu.Controls.Add(this.pageUsers);
             this.tabMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMenu.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.tabMenu.Location = new System.Drawing.Point(0, 0);
@@ -396,23 +401,23 @@
             this.dataTableClients.BackgroundColor = System.Drawing.Color.White;
             this.dataTableClients.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataTableClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataTableClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataTableClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableClients.Location = new System.Drawing.Point(0, 0);
             this.dataTableClients.Name = "dataTableClients";
@@ -442,6 +447,7 @@
             this.dataTableRequests.ReadOnly = true;
             this.dataTableRequests.Size = new System.Drawing.Size(973, 559);
             this.dataTableRequests.TabIndex = 1;
+            this.dataTableRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableRequests_CellClick);
             // 
             // pageServices
             // 
@@ -464,6 +470,30 @@
             this.dataTableServices.ReadOnly = true;
             this.dataTableServices.Size = new System.Drawing.Size(973, 559);
             this.dataTableServices.TabIndex = 2;
+            this.dataTableServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableServices_CellClick);
+            // 
+            // pageUsers
+            // 
+            this.pageUsers.Controls.Add(this.dataTableUsers);
+            this.pageUsers.Location = new System.Drawing.Point(4, 28);
+            this.pageUsers.Name = "pageUsers";
+            this.pageUsers.Size = new System.Drawing.Size(973, 559);
+            this.pageUsers.TabIndex = 3;
+            this.pageUsers.Text = "Пользователи";
+            this.pageUsers.UseVisualStyleBackColor = true;
+            // 
+            // dataTableUsers
+            // 
+            this.dataTableUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataTableUsers.BackgroundColor = System.Drawing.Color.White;
+            this.dataTableUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTableUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataTableUsers.Location = new System.Drawing.Point(0, 0);
+            this.dataTableUsers.Name = "dataTableUsers";
+            this.dataTableUsers.ReadOnly = true;
+            this.dataTableUsers.Size = new System.Drawing.Size(973, 559);
+            this.dataTableUsers.TabIndex = 3;
+            this.dataTableUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableUsers_CellClick);
             // 
             // frmMenuAdm
             // 
@@ -496,6 +526,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTableRequests)).EndInit();
             this.pageServices.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableServices)).EndInit();
+            this.pageUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -528,5 +560,7 @@
         private System.Windows.Forms.DataGridView dataTableRequests;
         private System.Windows.Forms.Button bttnRefresh;
         private System.Windows.Forms.DataGridView dataTableServices;
+        private System.Windows.Forms.TabPage pageUsers;
+        private System.Windows.Forms.DataGridView dataTableUsers;
     }
 }

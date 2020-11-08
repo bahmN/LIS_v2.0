@@ -10,7 +10,10 @@ namespace LIS
         public frmAddClient()
         {
             InitializeComponent();
-            bttnOK.Text = "Добавить";
+            bttnOK.Text = "Далее";
+            labelPanelAdm.Text = "Добавить заявку";
+            labelPanelAdm.Left = ( ClientSize.Width - labelPanelAdm.Width ) / 2;
+            datePickerBirthday.MaxDate = DateTime.Now;
         }
 
         public frmAddClient(string passport)
@@ -18,6 +21,8 @@ namespace LIS
             InitializeComponent();
             Passport = passport;
             bttnOK.Text = "Изменить";
+            labelPanelAdm.Text = "Изменить данные";
+            labelPanelAdm.Left = ( ClientSize.Width - labelPanelAdm.Width ) / 2;
         }
         static private string Passport;
         /*
@@ -53,16 +58,18 @@ namespace LIS
         //--------------------------------------------------------
         private void bttnOK_Click(object sender, EventArgs e)
         {
-            if (bttnOK.Text == "Добавить") {
+            if (bttnOK.Text == "Добавить заявку") {
                 MySqlCommand cAdd = new MySqlCommand("INSERT INTO клиент(`Номер и серия паспорта`, ФИО, `Дата рождения`, СНИЛС, `Номер телефона`, `Адрес проживания`, `e-mail`) VALUES " +
-                    "('" + tbPassport.Text + "', '" + tbFN.Text + "', '" + datePickerBirthday.Text + "', '" + tbSNILS.Text + "', '" + tbNumbPhone.Text + "', '" + tbAdress.Text + "', '" + tbEMail.Text + "')", frmMenuAdm.connection);
+                    "('" + tbPassport.Text + "', '" + tbFN.Text + "', '" + datePickerBirthday.Text + "', '" + tbSNILS.Text + "', '" + tbNumbPhone.Text + "', '" + tbAdress.Text + "', '" + tbEMail.Text + "')", frmAuthorizaton.connection);
                 if (cAdd.ExecuteNonQuery() == 1) {
-                    DialogResult = DialogResult.OK;
+                    string passport = tbPassport.Text;
+                    frmAddRequest FAR = new frmAddRequest(passport);
+                    FAR.ShowDialog();
                 }                
             }
-            else if (bttnOK.Text == "Изменить") {
+            else if (bttnOK.Text == "Изменить данные") {
                 MySqlCommand cChng = new MySqlCommand("UPDATE клиент SET `Номер и серия паспорта`= '" + tbPassport.Text + "', ФИО= '" + tbFN.Text + "', `Дата рождения`= '" + datePickerBirthday.Text + "', " +
-                    "СНИЛС= '" + tbSNILS.Text + "', `Номер телефона`= '" + tbNumbPhone.Text + "', `Адрес проживания`= '" + tbAdress.Text + "', `e-mail`= '" + tbEMail.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmMenuAdm.connection);
+                    "СНИЛС= '" + tbSNILS.Text + "', `Номер телефона`= '" + tbNumbPhone.Text + "', `Адрес проживания`= '" + tbAdress.Text + "', `e-mail`= '" + tbEMail.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorizaton.connection);
                 if (cChng.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }

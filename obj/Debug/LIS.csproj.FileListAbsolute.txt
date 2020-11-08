@@ -36,3 +36,7 @@ D:\C_Sharp\LIS\obj\Debug\LIS.frmAuthorizaton.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.frmMenuAdm.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.frmAddClient.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.Errors.ErrorChangeData.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.Adm.frmAddUser.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.Errors.ErrorRegistration.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.frmAddRequest.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.Errors.ErrorClient.resources

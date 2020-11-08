@@ -110,10 +110,10 @@
             this.bttnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnOK.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnOK.Location = new System.Drawing.Point(12, 112);
+            this.bttnOK.Location = new System.Drawing.Point(0, 112);
             this.bttnOK.Margin = new System.Windows.Forms.Padding(1);
             this.bttnOK.Name = "bttnOK";
-            this.bttnOK.Size = new System.Drawing.Size(272, 29);
+            this.bttnOK.Size = new System.Drawing.Size(294, 29);
             this.bttnOK.TabIndex = 5;
             this.bttnOK.Text = "OK";
             this.bttnOK.UseVisualStyleBackColor = true;

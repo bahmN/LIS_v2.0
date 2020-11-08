@@ -134,9 +134,9 @@
             this.bttnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnOK.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnOK.Location = new System.Drawing.Point(12, 137);
+            this.bttnOK.Location = new System.Drawing.Point(0, 137);
             this.bttnOK.Name = "bttnOK";
-            this.bttnOK.Size = new System.Drawing.Size(284, 24);
+            this.bttnOK.Size = new System.Drawing.Size(308, 24);
             this.bttnOK.TabIndex = 13;
             this.bttnOK.Text = "Зарегистрировать";
             this.bttnOK.UseVisualStyleBackColor = true;

@@ -47,7 +47,8 @@ namespace LIS.Adm
                 ER.Show();
             }
             else {
-                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + tbPassword.Text + "', '" + tbFN.Text + "')", frmMenuAdm.connection);
+                //TODO: добавить шифрование
+                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + tbPassword.Text + "', '" + tbFN.Text + "')", frmAuthorizaton.connection);
                 if (cAdd.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }

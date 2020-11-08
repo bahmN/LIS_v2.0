@@ -92,11 +92,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adm\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adm\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Errors\ErrorChangeData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Errors\ErrorChangeData.Designer.cs">
       <DependentUpon>ErrorChangeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorClient.Designer.cs">
+      <DependentUpon>ErrorClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorRegistration.Designer.cs">
+      <DependentUpon>ErrorRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddClient.cs">
       <SubType>Form</SubType>
@@ -104,30 +122,48 @@
     <Compile Include="frmAddClient.Designer.cs">
       <DependentUpon>frmAddClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddRequest.Designer.cs">
+      <DependentUpon>frmAddRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAuthorizaton.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAuthorizaton.Designer.cs">
       <DependentUpon>frmAuthorizaton.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenuAdm.cs">
+    <Compile Include="Adm\frmMenuAdm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenuAdm.Designer.cs">
+    <Compile Include="Adm\frmMenuAdm.Designer.cs">
       <DependentUpon>frmMenuAdm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Adm\frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Errors\ErrorChangeData.resx">
       <DependentUpon>ErrorChangeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Errors\ErrorClient.resx">
+      <DependentUpon>ErrorClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Errors\ErrorRegistration.resx">
+      <DependentUpon>ErrorRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddClient.resx">
       <DependentUpon>frmAddClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddRequest.resx">
+      <DependentUpon>frmAddRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAuthorizaton.resx">
       <DependentUpon>frmAuthorizaton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenuAdm.resx">
+    <EmbeddedResource Include="Adm\frmMenuAdm.resx">
       <DependentUpon>frmMenuAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

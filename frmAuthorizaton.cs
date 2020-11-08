@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace LIS
         {
             InitializeComponent();
         }
+        static public MySqlConnection connection;
 
         /*
          *-------------------------------Param move form--------------------------
@@ -56,14 +58,27 @@ namespace LIS
 
         private void bttnEnter_Click(object sender, EventArgs e)
         {
+            connection = new MySqlConnection("server = 127.0.0.1; port = 3306; user = root; password = Vfhnvfhn23@; database = lis; sslmode = none;");
+            connection.Open();
+
             if (chckBoxAdm.Checked == true) {
                 frmMenuAdm FMA = new frmMenuAdm();
                 FMA.ShowDialog();
             }
             else {
-
+                string Login = tbLogin.Text;
+                string Password = tbPassword.Text;
+                MySqlCommand cSelect = new MySqlCommand("SELECT * FROM пользователь WHERE логин= '" + Login + "' AND пароль= '" + Password + "'", connection);
+                MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
+                DataTable dtSelect = new DataTable();
+                daSelect.Fill(dtSelect);
+                if (dtSelect.Rows.Count > 0) {
+                    MessageBox.Show("1");
+                }
+                else {
+                    MessageBox.Show("0");
+                }
             }
-            
         }
 
         private void bttnEnter_MouseMove(object sender, MouseEventArgs e)

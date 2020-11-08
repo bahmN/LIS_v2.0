@@ -82,11 +82,11 @@
             this.labelPanelAdm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPanelAdm.AutoSize = true;
             this.labelPanelAdm.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPanelAdm.Location = new System.Drawing.Point(149, 18);
+            this.labelPanelAdm.Location = new System.Drawing.Point(200, 18);
             this.labelPanelAdm.Name = "labelPanelAdm";
-            this.labelPanelAdm.Size = new System.Drawing.Size(149, 18);
+            this.labelPanelAdm.Size = new System.Drawing.Size(46, 18);
             this.labelPanelAdm.TabIndex = 1;
-            this.labelPanelAdm.Text = "Добавить клиента";
+            this.labelPanelAdm.Text = "label";
             // 
             // panelTopColor
             // 
@@ -127,10 +127,10 @@
             this.bttnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnOK.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnOK.Location = new System.Drawing.Point(16, 264);
+            this.bttnOK.Location = new System.Drawing.Point(0, 264);
             this.bttnOK.Margin = new System.Windows.Forms.Padding(1);
             this.bttnOK.Name = "bttnOK";
-            this.bttnOK.Size = new System.Drawing.Size(200, 29);
+            this.bttnOK.Size = new System.Drawing.Size(216, 29);
             this.bttnOK.TabIndex = 7;
             this.bttnOK.Text = "bttn";
             this.bttnOK.UseVisualStyleBackColor = true;
@@ -162,7 +162,9 @@
             // datePickerBirthday
             // 
             this.datePickerBirthday.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.datePickerBirthday.Checked = false;
             this.datePickerBirthday.Location = new System.Drawing.Point(210, 86);
+            this.datePickerBirthday.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
             this.datePickerBirthday.Name = "datePickerBirthday";
             this.datePickerBirthday.Size = new System.Drawing.Size(224, 22);
             this.datePickerBirthday.TabIndex = 10;
@@ -273,7 +275,7 @@
             this.bttnCancel.Location = new System.Drawing.Point(234, 264);
             this.bttnCancel.Margin = new System.Windows.Forms.Padding(1);
             this.bttnCancel.Name = "bttnCancel";
-            this.bttnCancel.Size = new System.Drawing.Size(200, 29);
+            this.bttnCancel.Size = new System.Drawing.Size(212, 29);
             this.bttnCancel.TabIndex = 7;
             this.bttnCancel.Text = "Отмена";
             this.bttnCancel.UseVisualStyleBackColor = true;

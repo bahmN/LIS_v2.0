@@ -35,7 +35,7 @@
             this.labelLogin = new System.Windows.Forms.Label();
             this.labelPass = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
-            this.tbPass = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.bttnEnter = new System.Windows.Forms.Button();
             this.chckBoxAdm = new System.Windows.Forms.CheckBox();
             this.panelTop.SuspendLayout();
@@ -118,13 +118,13 @@
             this.tbLogin.Size = new System.Drawing.Size(214, 23);
             this.tbLogin.TabIndex = 2;
             // 
-            // tbPass
+            // tbPassword
             // 
-            this.tbPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPass.Location = new System.Drawing.Point(89, 102);
-            this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(214, 23);
-            this.tbPass.TabIndex = 2;
+            this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPassword.Location = new System.Drawing.Point(89, 102);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(214, 23);
+            this.tbPassword.TabIndex = 2;
             // 
             // bttnEnter
             // 
@@ -136,9 +136,9 @@
             this.bttnEnter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnEnter.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnEnter.Location = new System.Drawing.Point(16, 158);
+            this.bttnEnter.Location = new System.Drawing.Point(0, 158);
             this.bttnEnter.Name = "bttnEnter";
-            this.bttnEnter.Size = new System.Drawing.Size(288, 24);
+            this.bttnEnter.Size = new System.Drawing.Size(315, 24);
             this.bttnEnter.TabIndex = 3;
             this.bttnEnter.Text = "Войти";
             this.bttnEnter.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             this.ClientSize = new System.Drawing.Size(315, 196);
             this.Controls.Add(this.chckBoxAdm);
             this.Controls.Add(this.bttnEnter);
-            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.labelPass);
             this.Controls.Add(this.labelLogin);
@@ -192,7 +192,7 @@
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.TextBox tbLogin;
-        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button bttnEnter;
         private System.Windows.Forms.CheckBox chckBoxAdm;
     }
