@@ -257,6 +257,7 @@
             this.bttnAddUser.TabIndex = 4;
             this.bttnAddUser.Text = "Добавить пользователя";
             this.bttnAddUser.UseVisualStyleBackColor = true;
+            this.bttnAddUser.Click += new System.EventHandler(this.bttnAddUser_Click);
             this.bttnAddUser.MouseEnter += new System.EventHandler(this.bttnAddUser_MouseEnter);
             this.bttnAddUser.MouseLeave += new System.EventHandler(this.bttnAddUser_MouseLeave);
             // 
@@ -473,10 +474,10 @@
             this.Controls.Add(this.panelCenter);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuAdm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMainMenu";
             this.Load += new System.EventHandler(this.frmMenuAdm_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

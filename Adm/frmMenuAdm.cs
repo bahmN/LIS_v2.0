@@ -1,4 +1,5 @@
-﻿using LIS.Errors;
+﻿using LIS.Adm;
+using LIS.Errors;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -247,6 +248,9 @@ namespace LIS
             catch { }
         }
 
+        /*
+         * Delete
+         */
         private void bttnDelete_Click(object sender, EventArgs e)
         {
             if (tabMenu.SelectedTab == pageClients) {
@@ -259,6 +263,18 @@ namespace LIS
             else if (tabMenu.SelectedTab == pageRequests) {
             }
             else if (tabMenu.SelectedTab == pageServices) {
+            }
+        }
+
+        /*
+         * Add user
+         */
+        private void bttnAddUser_Click(object sender, EventArgs e)
+        {
+            frmAddUser FAU = new frmAddUser();
+            FAU.ShowDialog();
+            if(FAU.DialogResult == DialogResult.OK) {
+                bttnRefresh_Click(sender, e);
             }
         }
     }
