@@ -26,7 +26,6 @@ namespace LIS
         private void bttnOK_MouseEnter(object sender, EventArgs e)
         {
             bttnOK.ForeColor = Color.White;
-
         }
         private void bttnOK_MouseLeave(object sender, EventArgs e)
         {
