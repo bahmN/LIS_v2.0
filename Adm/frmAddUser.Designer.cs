@@ -39,8 +39,12 @@
             this.bttnOK = new System.Windows.Forms.Button();
             this.tbFN = new System.Windows.Forms.TextBox();
             this.labelFN = new System.Windows.Forms.Label();
+            this.tbPassword2 = new System.Windows.Forms.TextBox();
+            this.labelPassword2 = new System.Windows.Forms.Label();
+            this.bttnLookPassword = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).BeginInit();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bttnLookPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // bttnClose
@@ -48,7 +52,7 @@
             this.bttnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.bttnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttnClose.Image = ((System.Drawing.Image)(resources.GetObject("bttnClose.Image")));
-            this.bttnClose.Location = new System.Drawing.Point(280, 15);
+            this.bttnClose.Location = new System.Drawing.Point(365, 15);
             this.bttnClose.Name = "bttnClose";
             this.bttnClose.Size = new System.Drawing.Size(25, 25);
             this.bttnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -62,7 +66,7 @@
             this.panelTopColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopColor.Location = new System.Drawing.Point(0, 0);
             this.panelTopColor.Name = "panelTopColor";
-            this.panelTopColor.Size = new System.Drawing.Size(308, 12);
+            this.panelTopColor.Size = new System.Drawing.Size(393, 12);
             this.panelTopColor.TabIndex = 1;
             // 
             // panelTop
@@ -74,7 +78,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(308, 44);
+            this.panelTop.Size = new System.Drawing.Size(393, 44);
             this.panelTop.TabIndex = 3;
             // 
             // labelPanelAdm
@@ -82,7 +86,7 @@
             this.labelPanelAdm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPanelAdm.AutoSize = true;
             this.labelPanelAdm.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPanelAdm.Location = new System.Drawing.Point(59, 18);
+            this.labelPanelAdm.Location = new System.Drawing.Point(101, 18);
             this.labelPanelAdm.Name = "labelPanelAdm";
             this.labelPanelAdm.Size = new System.Drawing.Size(191, 18);
             this.labelPanelAdm.TabIndex = 1;
@@ -101,7 +105,7 @@
             // tbLogin
             // 
             this.tbLogin.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.tbLogin.Location = new System.Drawing.Point(79, 50);
+            this.tbLogin.Location = new System.Drawing.Point(164, 52);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(217, 22);
             this.tbLogin.TabIndex = 9;
@@ -119,8 +123,9 @@
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.tbPassword.Location = new System.Drawing.Point(79, 78);
+            this.tbPassword.Location = new System.Drawing.Point(164, 80);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '•';
             this.tbPassword.Size = new System.Drawing.Size(217, 22);
             this.tbPassword.TabIndex = 11;
             // 
@@ -134,9 +139,9 @@
             this.bttnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnOK.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnOK.Location = new System.Drawing.Point(0, 137);
+            this.bttnOK.Location = new System.Drawing.Point(0, 168);
             this.bttnOK.Name = "bttnOK";
-            this.bttnOK.Size = new System.Drawing.Size(308, 24);
+            this.bttnOK.Size = new System.Drawing.Size(393, 26);
             this.bttnOK.TabIndex = 13;
             this.bttnOK.Text = "Зарегистрировать";
             this.bttnOK.UseVisualStyleBackColor = true;
@@ -147,7 +152,7 @@
             // tbFN
             // 
             this.tbFN.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.tbFN.Location = new System.Drawing.Point(79, 106);
+            this.tbFN.Location = new System.Drawing.Point(164, 140);
             this.tbFN.Name = "tbFN";
             this.tbFN.Size = new System.Drawing.Size(217, 22);
             this.tbFN.TabIndex = 11;
@@ -156,22 +161,57 @@
             // 
             this.labelFN.AutoSize = true;
             this.labelFN.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.labelFN.Location = new System.Drawing.Point(12, 108);
+            this.labelFN.Location = new System.Drawing.Point(12, 140);
             this.labelFN.Name = "labelFN";
-            this.labelFN.Size = new System.Drawing.Size(43, 19);
+            this.labelFN.Size = new System.Drawing.Size(139, 19);
             this.labelFN.TabIndex = 12;
-            this.labelFN.Text = "ФИО";
+            this.labelFN.Text = "ФИО пользователя";
+            // 
+            // tbPassword2
+            // 
+            this.tbPassword2.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.tbPassword2.Location = new System.Drawing.Point(164, 108);
+            this.tbPassword2.Name = "tbPassword2";
+            this.tbPassword2.PasswordChar = '•';
+            this.tbPassword2.Size = new System.Drawing.Size(217, 22);
+            this.tbPassword2.TabIndex = 11;
+            // 
+            // labelPassword2
+            // 
+            this.labelPassword2.AutoSize = true;
+            this.labelPassword2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.labelPassword2.Location = new System.Drawing.Point(12, 108);
+            this.labelPassword2.Name = "labelPassword2";
+            this.labelPassword2.Size = new System.Drawing.Size(138, 19);
+            this.labelPassword2.TabIndex = 12;
+            this.labelPassword2.Text = "Повторите пароль";
+            // 
+            // bttnLookPassword
+            // 
+            this.bttnLookPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttnLookPassword.Image = ((System.Drawing.Image)(resources.GetObject("bttnLookPassword.Image")));
+            this.bttnLookPassword.Location = new System.Drawing.Point(360, 81);
+            this.bttnLookPassword.Name = "bttnLookPassword";
+            this.bttnLookPassword.Size = new System.Drawing.Size(20, 20);
+            this.bttnLookPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bttnLookPassword.TabIndex = 14;
+            this.bttnLookPassword.TabStop = false;
+            this.bttnLookPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bttnLookPassword_MouseDown);
+            this.bttnLookPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bttnLookPassword_MouseUp);
             // 
             // frmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(308, 170);
+            this.ClientSize = new System.Drawing.Size(393, 206);
+            this.Controls.Add(this.bttnLookPassword);
             this.Controls.Add(this.bttnOK);
             this.Controls.Add(this.labelFN);
+            this.Controls.Add(this.labelPassword2);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.tbFN);
+            this.Controls.Add(this.tbPassword2);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.labeLogin);
             this.Controls.Add(this.tbLogin);
@@ -184,6 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bttnLookPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +243,8 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbFN;
         private System.Windows.Forms.Label labelFN;
+        private System.Windows.Forms.TextBox tbPassword2;
+        private System.Windows.Forms.Label labelPassword2;
+        private System.Windows.Forms.PictureBox bttnLookPassword;
     }
 }

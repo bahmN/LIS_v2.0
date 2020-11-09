@@ -27,28 +27,30 @@ namespace LIS.Adm
         {
             if (string.IsNullOrWhiteSpace(tbLogin.Text)) {
                 string LoginResult = "1";
-                string PasswordResult = null;
-                string FNResult = null;
-                ErrorRegistration ER = new ErrorRegistration(LoginResult, PasswordResult, FNResult);
+                ErrorRegistration ER = new ErrorRegistration(LoginResult, null, null, null);
                 ER.Show();
             }
             else if (string.IsNullOrWhiteSpace(tbPassword.Text)) {
-                string LoginResult = null;
                 string PasswordResult = "1";
-                string FNResult = null;
-                ErrorRegistration ER = new ErrorRegistration(LoginResult, PasswordResult, FNResult);
+                ErrorRegistration ER = new ErrorRegistration(null, PasswordResult, null, null);
                 ER.Show();
             }
             else if (string.IsNullOrWhiteSpace(tbFN.Text)) {
-                string LoginResult = null;
-                string PasswordResult = null;
                 string FNResult = "1";
-                ErrorRegistration ER = new ErrorRegistration(LoginResult, PasswordResult, FNResult);
+                ErrorRegistration ER = new ErrorRegistration(null, null, null, FNResult);
+                ER.Show();
+            }
+            else if (tbPassword.Text != tbPassword2.Text) {
+                string Password2Result = "1";
+                ErrorRegistration ER = new ErrorRegistration(null, null, Password2Result, null);
                 ER.Show();
             }
             else {
-                //TODO: добавить шифрование
-                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + tbPassword.Text + "', '" + tbFN.Text + "')", frmAuthorizaton.connection);
+                string Login;
+                string Password;
+                Login = Hashing.HashPassword(tbLogin.Text, null); ;
+                Password = Hashing.HashPassword(tbPassword.Text, null);
+                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + Login + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorizaton.connection);
                 if (cAdd.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }
@@ -64,10 +66,20 @@ namespace LIS.Adm
         {
             bttnOK.ForeColor = Color.White;
         }
-
         private void bttnOK_MouseLeave(object sender, EventArgs e)
         {
             bttnOK.ForeColor = DefaultForeColor;
+        }
+
+        private void bttnLookPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            tbPassword.PasswordChar = (char)0;
+            tbPassword2.PasswordChar = (char)0;
+        }
+        private void bttnLookPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            tbPassword.PasswordChar = '•';
+            tbPassword2.PasswordChar = '•';
         }
     }
 }
