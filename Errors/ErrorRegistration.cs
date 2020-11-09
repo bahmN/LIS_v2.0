@@ -5,15 +5,17 @@ namespace LIS.Errors
 {
     public partial class ErrorRegistration : Form
     {
-        public ErrorRegistration(string login, string password, string fn)
+        public ErrorRegistration(string login, string password, string password2, string fn)
         {
             InitializeComponent();
             Login = login;
             Password = password;
+            Password2 = password2;
             FullName = fn;
         }
         static private string Login;
         static private string Password;
+        static private string Password2;
         static private string FullName;
         protected override CreateParams CreateParams
         {
@@ -48,9 +50,13 @@ namespace LIS.Errors
             else if (Password == "1") {
                 labelTxt.Text = "Строка \"Пароль\" не может\n быть пустой";
             }
+            else if (Password2 == "1") {
+                labelTxt.Text = "Пароли не совпадают!";
+                labelTxt.ForeColor = Color.Red;
+            }
             else if (FullName == "1") {
                 labelTxt.Text = "Строка \"ФИО\" не может\n быть пустой";
-            }
+            }            
         }
     }
 }
