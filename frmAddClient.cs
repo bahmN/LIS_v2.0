@@ -58,20 +58,27 @@ namespace LIS
         //--------------------------------------------------------
         private void bttnOK_Click(object sender, EventArgs e)
         {
-            if (bttnOK.Text == "Добавить заявку") {
+            if (bttnOK.Text == "Далее") {
                 MySqlCommand cAdd = new MySqlCommand("INSERT INTO клиент(`Номер и серия паспорта`, ФИО, `Дата рождения`, СНИЛС, `Номер телефона`, `Адрес проживания`, `e-mail`) VALUES " +
-                    "('" + tbPassport.Text + "', '" + tbFN.Text + "', '" + datePickerBirthday.Text + "', '" + tbSNILS.Text + "', '" + tbNumbPhone.Text + "', '" + tbAdress.Text + "', '" + tbEMail.Text + "')", frmAuthorizaton.connection);
+                    "('" + tbPassport.Text + "', '" + tbFN.Text + "', '" + datePickerBirthday.Text + "', '" + tbSNILS.Text + "', '" + tbNumbPhone.Text + "', '" + tbAdress.Text + "', '" + tbEMail.Text + "')", frmAuthorization.connection);
                 if (cAdd.ExecuteNonQuery() == 1) {
+                    DialogResult = DialogResult.OK;
                     string passport = tbPassport.Text;
                     frmAddRequest FAR = new frmAddRequest(passport);
+                    Close();
                     FAR.ShowDialog();
-                }                
+
+                    
+                }
+                this.Close();
             }
             else if (bttnOK.Text == "Изменить данные") {
                 MySqlCommand cChng = new MySqlCommand("UPDATE клиент SET `Номер и серия паспорта`= '" + tbPassport.Text + "', ФИО= '" + tbFN.Text + "', `Дата рождения`= '" + datePickerBirthday.Text + "', " +
-                    "СНИЛС= '" + tbSNILS.Text + "', `Номер телефона`= '" + tbNumbPhone.Text + "', `Адрес проживания`= '" + tbAdress.Text + "', `e-mail`= '" + tbEMail.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorizaton.connection);
+                    "СНИЛС= '" + tbSNILS.Text + "', `Номер телефона`= '" + tbNumbPhone.Text + "', `Адрес проживания`= '" + tbAdress.Text + "', `e-mail`= '" + tbEMail.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
                 if (cChng.ExecuteNonQuery() == 1) {
-                    DialogResult = DialogResult.OK;
+                    string passport = tbPassport.Text;
+                    frmAddRequest FAR = new frmAddRequest(passport);
+                    FAR.ShowDialog();
                 }
             }
         }

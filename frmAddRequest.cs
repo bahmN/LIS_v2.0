@@ -8,11 +8,12 @@ namespace LIS
 {
     public partial class frmAddRequest : Form
     {
-        public frmAddRequest(string passport = "1")
+        public frmAddRequest(string passport)
         {
             InitializeComponent();
             labelPanelReq.Text = "Добавить заявку";
             bttnOK.Text = "Добавить заявку";
+            labelPanelReq.Left = ( ClientSize.Width - labelPanelReq.Width ) / 2;
             Passport = passport;
             datePickerRequest.Value = DateTime.Now;
         }
@@ -60,16 +61,17 @@ namespace LIS
         }
 
         private void bttnOK_Click(object sender, EventArgs e)
-        {
-
+        {            
+            MySqlCommand cAdd = new MySqlCommand("INSERT INTO заявка(`Название анализа`, `Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения`) VALUES " +
+                "('" + cbNameAnalysis.Text + "', '" + Passport + "', '" + datePickerRequest.Text + "', '" + cbResult.Text + "', '" + dateTimeResult.Text + "')", frmAuthorization.connection);
+            if(cAdd.ExecuteNonQuery() == 1) {
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void frmAddRequest_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection("server = 127.0.0.1; port = 3306; user = root; password = Vfhnvfhn23@; database = lis; sslmode = none;");
-            connection.Open();
-
-            MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT `Название анализа` FROM услуги", connection);
+            MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT `Название анализа` FROM услуги", frmAuthorization.connection);
             DataTable dtServices = new DataTable();
             daServices.Fill(dtServices);
             cbNameAnalysis.DataSource = dtServices;

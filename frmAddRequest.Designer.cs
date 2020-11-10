@@ -63,7 +63,7 @@
             this.labelPanelReq.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPanelReq.AutoSize = true;
             this.labelPanelReq.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPanelReq.Location = new System.Drawing.Point(157, 18);
+            this.labelPanelReq.Location = new System.Drawing.Point(187, 18);
             this.labelPanelReq.Name = "labelPanelReq";
             this.labelPanelReq.Size = new System.Drawing.Size(46, 18);
             this.labelPanelReq.TabIndex = 1;
