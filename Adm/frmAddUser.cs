@@ -47,7 +47,7 @@ namespace LIS.Adm
             }
             else {
                 string Password = Hashing.HashPassword(tbPassword.Text);
-                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorizaton.connection);
+                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorization.connection);
                 if (cAdd.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }
