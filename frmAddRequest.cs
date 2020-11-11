@@ -70,7 +70,7 @@ namespace LIS
             }
             else if (bttnOK.Text == "Подтвердить") {
                 MySqlCommand cChng = new MySqlCommand("UPDATE заявка SET `Название анализа`= '" + cbNameAnalysis.Text + "', `Дата создания`= '" + datePickerRequest.Text + "', " +
-                    "Результат= '" + tbResult.Text + "', `Дата выполнения`= '" + dateTimeResult.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
+                    "Результат= '" + tbResult.Text + "', `Дата выполнения`= '" + dateTimeResult.Text + "' WHERE `№ заявки`= '" + Passport + "'", frmAuthorization.connection);
                 if (cChng.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }

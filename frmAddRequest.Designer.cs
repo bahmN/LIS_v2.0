@@ -115,7 +115,7 @@
             // 
             this.cbNameAnalysis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNameAnalysis.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.cbNameAnalysis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            this.cbNameAnalysis.ForeColor = System.Drawing.Color.Black;
             this.cbNameAnalysis.FormattingEnabled = true;
             this.cbNameAnalysis.Location = new System.Drawing.Point(218, 56);
             this.cbNameAnalysis.Name = "cbNameAnalysis";
