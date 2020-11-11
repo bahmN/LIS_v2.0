@@ -72,12 +72,12 @@ namespace LIS
          */
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbSearch.Text)) {
-                labelSearch.ForeColor = DefaultForeColor;
-            }
-            else {
-                labelSearch.ForeColor = ColorTranslator.FromHtml("#5c192f");
-            }
+            //if (string.IsNullOrWhiteSpace(tbSearch.Text)) {
+            //    labelSearch.ForeColor = DefaultForeColor;
+            //}
+            //else {
+            //    labelSearch.ForeColor = ColorTranslator.FromHtml("#5c192f");
+            //}
             /*
              * Searching
              */
@@ -95,10 +95,35 @@ namespace LIS
                 dataTableClients.DataSource = dtSearch;
             }
             else if (tabMenu.SelectedTab == pageRequests) {
+                MySqlDataAdapter daSearch = new MySqlDataAdapter("SELECT `№ заявки`, `Название анализа`, ФИО, заявка.`Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения` FROM заявка, клиент " +
+                    "WHERE (заявка.`Номер и серия паспорта` = клиент.`Номер и серия паспорта`)" +
+                    "AND (`Название анализа` LIKE '%" + tbSearch.Text + "%' " +
+                    "OR ФИО LIKE '%" + tbSearch.Text + "%' " +
+                    "OR `Дата создания` LIKE '%" + tbSearch.Text + "%' " +
+                    "OR Результат like '%" + tbSearch.Text + "%' " +
+                    "OR `Дата выполнения` LIKE '%" + tbSearch.Text + "%')", frmAuthorization.connection);
+                DataTable dtSearch = new DataTable();
+                daSearch.Fill(dtSearch);
+                dataTableRequests.DataSource = dtSearch;
             }
             else if (tabMenu.SelectedTab == pageServices) {
+                MySqlDataAdapter daSearch = new MySqlDataAdapter("SELECT `Название анализа`, Цена, `Срок выполнения`, Рекомендации FROM услуги " +
+                    "WHERE `Название анализа` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR Цена LIKE '%" + tbSearch.Text + "%' " +
+                      "OR `Срок выполнения` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR Рекомендации LIKE '%" + tbSearch.Text + "%'", frmAuthorization.connection);
+                DataTable dtSearch = new DataTable();
+                daSearch.Fill(dtSearch);
+                dataTableServices.DataSource = dtSearch;
             }
-
+            else if (tabMenu.SelectedTab == pageUsers) {
+                MySqlDataAdapter daSearch = new MySqlDataAdapter("SELECT ID, Логин, Пароль, ФИО FROM пользователь " +
+                    "WHERE Логин LIKE '%" + tbSearch.Text + "%' " +
+                      "OR ФИО LIKE '%" + tbSearch.Text + "%'", frmAuthorization.connection);
+                DataTable dtSearch = new DataTable();
+                daSearch.Fill(dtSearch);
+                dataTableUsers.DataSource = dtSearch;
+            }
         }
 
         // Color when mouse move on the button         
@@ -161,14 +186,12 @@ namespace LIS
         //----------------------------------------------------------------------
         private void frmMenuAdm_Load(object sender, EventArgs e)
         {
-            
+
             bttnRefresh_Click(sender, e);
         }
 
         private void bttnRefresh_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter("Select * From " + tabMenu.SelectedTab, frmAuthorization.connection);
-
             if (tabMenu.SelectedTab == pageClients) {
                 MySqlDataAdapter daClients = new MySqlDataAdapter("SELECT * FROM клиент", frmAuthorization.connection);
                 DataTable dtClients = new DataTable();
@@ -178,7 +201,8 @@ namespace LIS
                 dataTableClients.AllowUserToAddRows = false; // Убрать отображение самой нижней строки
             }
             else if (tabMenu.SelectedTab == pageRequests) {
-                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT * FROM заявка", frmAuthorization.connection);
+                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT `№ заявки`, `Название анализа`, ФИО, клиент.`Номер и серия паспорта`, `Дата создания`,Результат,`Дата выполнения` FROM заявка, клиент " +
+                    "WHERE заявка.`Номер и серия паспорта` = клиент.`Номер и серия паспорта`", frmAuthorization.connection);
                 DataTable dtRequests = new DataTable();
                 daRequests.Fill(dtRequests);
                 dataTableRequests.DataSource = dtRequests;
@@ -220,8 +244,21 @@ namespace LIS
         private void bttnAdd_Click(object sender, EventArgs e)
         {
             if (tabMenu.SelectedTab == pageClients) {
-                ErrorClient EC = new ErrorClient();
-                EC.Show();
+                try {
+                    frmAddRequest FAR = new frmAddRequest(dataTableClients.SelectedRows[0].Cells[0].Value.ToString());
+                    FAR.bttnOK.Text = "Добавить";
+                    FAR.labelPanelReq.Text = "Добавить заявку";
+                    FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
+                    FAR.ShowDialog();
+                    if (FAR.DialogResult == DialogResult.OK) {
+                        bttnRefresh_Click(sender, e);
+                    }
+                }
+                catch {
+                    ErrorClient EC = new ErrorClient();
+                    EC.Show();
+                }
+
             }
             else if (tabMenu.SelectedTab == pageRequests) {
                 frmAddClient FAC = new frmAddClient();
@@ -260,10 +297,10 @@ namespace LIS
                     }
                 }
                 else if (tabMenu.SelectedTab == pageRequests) {
-                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[2].Value.ToString());
-                    FAR.cbNameAnalysis.Text = dataTableRequests.SelectedRows[0].Cells[2].Value.ToString();
-                    FAR.datePickerRequest.Text = dataTableRequests.SelectedRows[0].Cells[3].Value.ToString();
-                    FAR.tbResult.Text = dataTableRequests.SelectedRows[0].Cells[4].Value.ToString();
+                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[0].Value.ToString());
+                    FAR.cbNameAnalysis.Text = dataTableRequests.SelectedRows[0].Cells[1].Value.ToString();
+                    FAR.datePickerRequest.Text = dataTableRequests.SelectedRows[0].Cells[4].Value.ToString();
+                    FAR.tbResult.Text = dataTableRequests.SelectedRows[0].Cells[5].Value.ToString();
                     FAR.bttnOK.Text = "Подтвердить";
                     FAR.labelPanelReq.Text = "Подтвердить результат анализа";
                     FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
@@ -272,7 +309,7 @@ namespace LIS
                         bttnRefresh_Click(sender, e);
                     }
                 }
-                else if(tabMenu.SelectedTab == pageServices) {
+                else if (tabMenu.SelectedTab == pageServices) {
                     frmAddServices FAS = new frmAddServices(dataTableServices.SelectedRows[0].Cells[0].Value.ToString());
                     FAS.tbName.Text = dataTableServices.SelectedRows[0].Cells[0].Value.ToString();
                     FAS.tbPrice.Text = dataTableServices.SelectedRows[0].Cells[1].Value.ToString();
@@ -366,7 +403,7 @@ namespace LIS
         {
             frmAddUser FAU = new frmAddUser();
             FAU.ShowDialog();
-            if(FAU.DialogResult == DialogResult.OK) {
+            if (FAU.DialogResult == DialogResult.OK) {
                 bttnRefresh_Click(sender, e);
             }
         }
