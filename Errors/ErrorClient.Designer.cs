@@ -41,11 +41,12 @@
             // 
             this.labelTxt.AutoSize = true;
             this.labelTxt.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.labelTxt.Location = new System.Drawing.Point(8, 47);
+            this.labelTxt.Location = new System.Drawing.Point(5, 47);
             this.labelTxt.Name = "labelTxt";
-            this.labelTxt.Size = new System.Drawing.Size(275, 34);
+            this.labelTxt.Size = new System.Drawing.Size(313, 51);
             this.labelTxt.TabIndex = 7;
-            this.labelTxt.Text = "Пожалуйста, выберите следующую вкладку, \r\nчтобы добавить заявку";
+            this.labelTxt.Text = "Пожалуйста, выберите клиента которому нужно \r\nоформить заяву на анализ, если его " +
+    "нет, то \r\nсоздайте нового, перейдя на предыдущую вкладку\r\n";
             // 
             // labelHeader
             // 
@@ -66,14 +67,14 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(289, 44);
+            this.panelTop.Size = new System.Drawing.Size(321, 44);
             this.panelTop.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(50, 18);
+            this.label1.Location = new System.Drawing.Point(66, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 18);
             this.label1.TabIndex = 4;
@@ -84,7 +85,7 @@
             this.labelPanelAdm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPanelAdm.AutoSize = true;
             this.labelPanelAdm.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPanelAdm.Location = new System.Drawing.Point(-398, 18);
+            this.labelPanelAdm.Location = new System.Drawing.Point(-366, 18);
             this.labelPanelAdm.Name = "labelPanelAdm";
             this.labelPanelAdm.Size = new System.Drawing.Size(202, 18);
             this.labelPanelAdm.TabIndex = 1;
@@ -96,7 +97,7 @@
             this.panelTopColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopColor.Location = new System.Drawing.Point(0, 0);
             this.panelTopColor.Name = "panelTopColor";
-            this.panelTopColor.Size = new System.Drawing.Size(289, 12);
+            this.panelTopColor.Size = new System.Drawing.Size(321, 12);
             this.panelTopColor.TabIndex = 1;
             // 
             // bttnOK
@@ -109,10 +110,10 @@
             this.bttnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnOK.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnOK.Location = new System.Drawing.Point(0, 84);
+            this.bttnOK.Location = new System.Drawing.Point(0, 107);
             this.bttnOK.Margin = new System.Windows.Forms.Padding(1);
             this.bttnOK.Name = "bttnOK";
-            this.bttnOK.Size = new System.Drawing.Size(289, 29);
+            this.bttnOK.Size = new System.Drawing.Size(321, 29);
             this.bttnOK.TabIndex = 8;
             this.bttnOK.Text = "OK";
             this.bttnOK.UseVisualStyleBackColor = true;
@@ -125,7 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(289, 118);
+            this.ClientSize = new System.Drawing.Size(321, 141);
             this.Controls.Add(this.labelTxt);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.bttnOK);

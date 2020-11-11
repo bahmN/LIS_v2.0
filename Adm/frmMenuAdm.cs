@@ -89,7 +89,7 @@ namespace LIS
                       "OR СНИЛС LIKE '%" + tbSearch.Text + "%' " +
                       "OR `Номер телефона` LIKE '%" + tbSearch.Text + "%' " +
                       "OR `Адрес проживания` LIKE '%" + tbSearch.Text + "%' " +
-                      "OR `e-mail` LIKE '%" + tbSearch.Text + "%'", frmAuthorizaton.connection);
+                      "OR `e-mail` LIKE '%" + tbSearch.Text + "%'", frmAuthorization.connection);
                 DataTable dtSearch = new DataTable();
                 daSearch.Fill(dtSearch);
                 dataTableClients.DataSource = dtSearch;
@@ -167,10 +167,10 @@ namespace LIS
 
         private void bttnRefresh_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter("Select * From " + tabMenu.SelectedTab, frmAuthorizaton.connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("Select * From " + tabMenu.SelectedTab, frmAuthorization.connection);
 
             if (tabMenu.SelectedTab == pageClients) {
-                MySqlDataAdapter daClients = new MySqlDataAdapter("SELECT * FROM клиент", frmAuthorizaton.connection);
+                MySqlDataAdapter daClients = new MySqlDataAdapter("SELECT * FROM клиент", frmAuthorization.connection);
                 DataTable dtClients = new DataTable();
                 daClients.Fill(dtClients);
                 dataTableClients.DataSource = dtClients;
@@ -178,30 +178,34 @@ namespace LIS
                 dataTableClients.AllowUserToAddRows = false; // Убрать отображение самой нижней строки
             }
             else if (tabMenu.SelectedTab == pageRequests) {
-                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT * FROM заявка", frmAuthorizaton.connection);
+                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT * FROM заявка", frmAuthorization.connection);
                 DataTable dtRequests = new DataTable();
                 daRequests.Fill(dtRequests);
                 dataTableRequests.DataSource = dtRequests;
                 dataTableRequests.RowHeadersVisible = false; // Убрать отображение самой левой колонки
                 dataTableRequests.AllowUserToAddRows = false;// Убрать отображение самой нижней строки
-                dataTableRequests.Columns[0].FillWeight = 60;
+                dataTableRequests.Columns[0].Width = 60;
             }
             else if (tabMenu.SelectedTab == pageServices) {
-                MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT * FROM услуги", frmAuthorizaton.connection);
+                MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT * FROM услуги", frmAuthorization.connection);
                 DataTable dtServices = new DataTable();
                 daServices.Fill(dtServices);
                 dataTableServices.DataSource = dtServices;
                 dataTableServices.RowHeadersVisible = false; // Убрать отображение самой левой колонки
                 dataTableServices.AllowUserToAddRows = false; // Убрать отображение самой нижней строки
+                dataTableServices.Columns[0].Width = 300;
+                dataTableServices.Columns[1].Width = 75;
+                dataTableServices.Columns[2].Width = 170;
             }
             else if (tabMenu.SelectedTab == pageUsers) {
                 //TODO: добавить проверку пароля админа
-                MySqlDataAdapter daUsers = new MySqlDataAdapter("SELECT * FROM пользователь", frmAuthorizaton.connection);
+                MySqlDataAdapter daUsers = new MySqlDataAdapter("SELECT * FROM пользователь", frmAuthorization.connection);
                 DataTable dtUsers = new DataTable();
                 daUsers.Fill(dtUsers);
                 dataTableUsers.DataSource = dtUsers;
                 dataTableUsers.RowHeadersVisible = false; // Убрать отображение самой левой колонки
                 dataTableUsers.AllowUserToAddRows = false; // Убрать отображение самой нижней строки
+                dataTableUsers.Columns[0].Width = 35;
             }
         }
 
@@ -226,6 +230,13 @@ namespace LIS
                     bttnRefresh_Click(sender, e);
                 }
             }
+            else if (tabMenu.SelectedTab == pageServices) {
+                frmAddServices FAS = new frmAddServices(null);
+                FAS.ShowDialog();
+                if (FAS.DialogResult == DialogResult.OK) {
+                    bttnRefresh_Click(sender, e);
+                }
+            }
         }
 
         /*
@@ -245,6 +256,33 @@ namespace LIS
                     FAC.tbEMail.Text = dataTableClients.SelectedRows[0].Cells[6].Value.ToString();
                     FAC.ShowDialog();
                     if (FAC.DialogResult == DialogResult.OK) {
+                        bttnRefresh_Click(sender, e);
+                    }
+                }
+                else if (tabMenu.SelectedTab == pageRequests) {
+                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[2].Value.ToString());
+                    FAR.cbNameAnalysis.Text = dataTableRequests.SelectedRows[0].Cells[2].Value.ToString();
+                    FAR.datePickerRequest.Text = dataTableRequests.SelectedRows[0].Cells[3].Value.ToString();
+                    FAR.tbResult.Text = dataTableRequests.SelectedRows[0].Cells[4].Value.ToString();
+                    FAR.bttnOK.Text = "Подтвердить";
+                    FAR.labelPanelReq.Text = "Подтвердить результат анализа";
+                    FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
+                    FAR.ShowDialog();
+                    if (FAR.DialogResult == DialogResult.OK) {
+                        bttnRefresh_Click(sender, e);
+                    }
+                }
+                else if(tabMenu.SelectedTab == pageServices) {
+                    frmAddServices FAS = new frmAddServices(dataTableServices.SelectedRows[0].Cells[0].Value.ToString());
+                    FAS.tbName.Text = dataTableServices.SelectedRows[0].Cells[0].Value.ToString();
+                    FAS.tbPrice.Text = dataTableServices.SelectedRows[0].Cells[1].Value.ToString();
+                    FAS.tbTerm.Text = dataTableServices.SelectedRows[0].Cells[2].Value.ToString();
+                    FAS.tbRecommendation.Text = dataTableServices.SelectedRows[0].Cells[3].Value.ToString();
+                    FAS.bttnOK.Text = "Изменить";
+                    FAS.labelPanelAdm.Text = "Изменить данные услуги";
+                    FAS.labelPanelAdm.Left = ( ClientSize.Width - FAS.labelPanelAdm.Width ) / 2;
+                    FAS.ShowDialog();
+                    if (FAS.DialogResult == DialogResult.OK) {
                         bttnRefresh_Click(sender, e);
                     }
                 }
@@ -291,29 +329,31 @@ namespace LIS
         {
             if (tabMenu.SelectedTab == pageClients) {
                 for (var i = 0; i < dataTableClients.SelectedRows.Count; i++) {
-                    MySqlCommand commandDP = new MySqlCommand("DELETE FROM клиент WHERE `" + dataTableClients.Columns[0].HeaderText + "` = '" + dataTableClients.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorizaton.connection);
-                    commandDP.ExecuteNonQuery();
+                    MySqlCommand commandD = new MySqlCommand("DELETE FROM клиент WHERE `" + dataTableClients.Columns[0].HeaderText + "` = '" + dataTableClients.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
+                    commandD.ExecuteNonQuery();
+                    MySqlCommand commandD2 = new MySqlCommand("DELETE FROM заявка WHERE `Номер и серия паспорта`= '" + dataTableClients.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
+                    commandD2.ExecuteNonQuery();
                 }
                 bttnRefresh_Click(sender, e);
             }
             else if (tabMenu.SelectedTab == pageRequests) {
                 for (var i = 0; i < dataTableRequests.SelectedRows.Count; i++) {
-                    MySqlCommand commandDP = new MySqlCommand("DELETE FROM заявка WHERE `" + dataTableRequests.Columns[0].HeaderText + "` = '" + dataTableRequests.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorizaton.connection);
-                    commandDP.ExecuteNonQuery();
+                    MySqlCommand commandD = new MySqlCommand("DELETE FROM заявка WHERE `" + dataTableRequests.Columns[0].HeaderText + "` = '" + dataTableRequests.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
+                    commandD.ExecuteNonQuery();
                 }
                 bttnRefresh_Click(sender, e);
             }
             else if (tabMenu.SelectedTab == pageServices) {
                 for (var i = 0; i < dataTableServices.SelectedRows.Count; i++) {
-                    MySqlCommand commandDP = new MySqlCommand("DELETE FROM услуги WHERE `" + dataTableServices.Columns[0].HeaderText + "` = '" + dataTableServices.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorizaton.connection);
-                    commandDP.ExecuteNonQuery();
+                    MySqlCommand commandD = new MySqlCommand("DELETE FROM услуги WHERE `" + dataTableServices.Columns[0].HeaderText + "` = '" + dataTableServices.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
+                    commandD.ExecuteNonQuery();
                 }
                 bttnRefresh_Click(sender, e);
             }
             else if (tabMenu.SelectedTab == pageUsers) {
                 for (var i = 0; i < dataTableUsers.SelectedRows.Count; i++) {
-                    MySqlCommand commandDP = new MySqlCommand("DELETE FROM пользователь WHERE `" + dataTableUsers.Columns[0].HeaderText + "` = '" + dataTableUsers.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorizaton.connection);
-                    commandDP.ExecuteNonQuery();
+                    MySqlCommand commandD = new MySqlCommand("DELETE FROM пользователь WHERE `" + dataTableUsers.Columns[0].HeaderText + "` = '" + dataTableUsers.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
+                    commandD.ExecuteNonQuery();
                 }
                 bttnRefresh_Click(sender, e);
             }

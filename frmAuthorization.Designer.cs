@@ -152,12 +152,14 @@
             // chckBoxAdm
             // 
             this.chckBoxAdm.AutoSize = true;
+            this.chckBoxAdm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chckBoxAdm.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.chckBoxAdm.Location = new System.Drawing.Point(162, 131);
             this.chckBoxAdm.Name = "chckBoxAdm";
             this.chckBoxAdm.Size = new System.Drawing.Size(141, 23);
             this.chckBoxAdm.TabIndex = 5;
             this.chckBoxAdm.Text = "Администратор";
+            this.chckBoxAdm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chckBoxAdm.UseVisualStyleBackColor = true;
             // 
             // bttnLookPassword
@@ -173,7 +175,7 @@
             this.bttnLookPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bttnLookPassword_MouseDown);
             this.bttnLookPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bttnLookPassword_MouseUp);
             // 
-            // frmAuthorizaton
+            // frmAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -189,9 +191,9 @@
             this.Controls.Add(this.panelTop);
             this.Font = new System.Drawing.Font("Roboto", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmAuthorizaton";
+            this.Name = "frmAuthorization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Авторизация";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).EndInit();

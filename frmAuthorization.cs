@@ -63,7 +63,7 @@ namespace LIS
             connection.Open();
 
             if (chckBoxAdm.Checked == true) {
-                frmMenuAdm FMA = new frmMenuAdm();
+                frmMenuAdm FMA = new frmMenuAdm();                
                 FMA.ShowDialog();
             }
             else {
@@ -80,7 +80,16 @@ namespace LIS
                 }
             }
         }
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x00020000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
         private void bttnEnter_MouseMove(object sender, MouseEventArgs e)
         {
             bttnEnter.ForeColor = Color.White;

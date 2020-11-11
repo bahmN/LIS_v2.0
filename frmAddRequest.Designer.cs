@@ -36,12 +36,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbNameAnalysis = new System.Windows.Forms.ComboBox();
             this.datePickerRequest = new System.Windows.Forms.DateTimePicker();
-            this.cbResult = new System.Windows.Forms.ComboBox();
             this.labelResult = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimeResult = new System.Windows.Forms.DateTimePicker();
             this.bttnCancel = new System.Windows.Forms.Button();
             this.bttnOK = new System.Windows.Forms.Button();
+            this.tbResult = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(421, 44);
+            this.panelTop.Size = new System.Drawing.Size(446, 44);
             this.panelTop.TabIndex = 3;
             // 
             // labelPanelReq
@@ -63,7 +63,7 @@
             this.labelPanelReq.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPanelReq.AutoSize = true;
             this.labelPanelReq.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPanelReq.Location = new System.Drawing.Point(187, 18);
+            this.labelPanelReq.Location = new System.Drawing.Point(200, 18);
             this.labelPanelReq.Name = "labelPanelReq";
             this.labelPanelReq.Size = new System.Drawing.Size(46, 18);
             this.labelPanelReq.TabIndex = 1;
@@ -74,7 +74,7 @@
             this.bttnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.bttnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bttnClose.Image = ((System.Drawing.Image)(resources.GetObject("bttnClose.Image")));
-            this.bttnClose.Location = new System.Drawing.Point(393, 15);
+            this.bttnClose.Location = new System.Drawing.Point(418, 15);
             this.bttnClose.Name = "bttnClose";
             this.bttnClose.Size = new System.Drawing.Size(25, 25);
             this.bttnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -88,7 +88,7 @@
             this.panelTopColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopColor.Location = new System.Drawing.Point(0, 0);
             this.panelTopColor.Name = "panelTopColor";
-            this.panelTopColor.Size = new System.Drawing.Size(421, 12);
+            this.panelTopColor.Size = new System.Drawing.Size(446, 12);
             this.panelTopColor.TabIndex = 1;
             // 
             // labelBirthday
@@ -113,11 +113,13 @@
             // 
             // cbNameAnalysis
             // 
+            this.cbNameAnalysis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNameAnalysis.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.cbNameAnalysis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.cbNameAnalysis.FormattingEnabled = true;
-            this.cbNameAnalysis.Location = new System.Drawing.Point(219, 56);
+            this.cbNameAnalysis.Location = new System.Drawing.Point(218, 56);
             this.cbNameAnalysis.Name = "cbNameAnalysis";
-            this.cbNameAnalysis.Size = new System.Drawing.Size(185, 25);
+            this.cbNameAnalysis.Size = new System.Drawing.Size(216, 25);
             this.cbNameAnalysis.TabIndex = 16;
             // 
             // datePickerRequest
@@ -125,22 +127,12 @@
             this.datePickerRequest.Enabled = false;
             this.datePickerRequest.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.datePickerRequest.Location = new System.Drawing.Point(218, 87);
+            this.datePickerRequest.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.datePickerRequest.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.datePickerRequest.Name = "datePickerRequest";
-            this.datePickerRequest.Size = new System.Drawing.Size(185, 22);
+            this.datePickerRequest.Size = new System.Drawing.Size(215, 22);
             this.datePickerRequest.TabIndex = 17;
             this.datePickerRequest.Value = new System.DateTime(2020, 11, 1, 0, 0, 0, 0);
-            // 
-            // cbResult
-            // 
-            this.cbResult.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.cbResult.FormattingEnabled = true;
-            this.cbResult.Items.AddRange(new object[] {
-            "Положительный",
-            "Отрицательный"});
-            this.cbResult.Location = new System.Drawing.Point(218, 115);
-            this.cbResult.Name = "cbResult";
-            this.cbResult.Size = new System.Drawing.Size(185, 25);
-            this.cbResult.TabIndex = 16;
             // 
             // labelResult
             // 
@@ -164,11 +156,10 @@
             // 
             // dateTimeResult
             // 
-            this.dateTimeResult.Enabled = false;
             this.dateTimeResult.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dateTimeResult.Location = new System.Drawing.Point(218, 146);
             this.dateTimeResult.Name = "dateTimeResult";
-            this.dateTimeResult.Size = new System.Drawing.Size(185, 22);
+            this.dateTimeResult.Size = new System.Drawing.Size(215, 22);
             this.dateTimeResult.TabIndex = 17;
             // 
             // bttnCancel
@@ -181,10 +172,10 @@
             this.bttnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnCancel.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnCancel.Location = new System.Drawing.Point(219, 184);
+            this.bttnCancel.Location = new System.Drawing.Point(232, 184);
             this.bttnCancel.Margin = new System.Windows.Forms.Padding(1);
             this.bttnCancel.Name = "bttnCancel";
-            this.bttnCancel.Size = new System.Drawing.Size(202, 29);
+            this.bttnCancel.Size = new System.Drawing.Size(214, 29);
             this.bttnCancel.TabIndex = 18;
             this.bttnCancel.Text = "Отмена";
             this.bttnCancel.UseVisualStyleBackColor = true;
@@ -205,7 +196,7 @@
             this.bttnOK.Location = new System.Drawing.Point(0, 184);
             this.bttnOK.Margin = new System.Windows.Forms.Padding(1);
             this.bttnOK.Name = "bttnOK";
-            this.bttnOK.Size = new System.Drawing.Size(204, 29);
+            this.bttnOK.Size = new System.Drawing.Size(217, 29);
             this.bttnOK.TabIndex = 19;
             this.bttnOK.Text = "bttn";
             this.bttnOK.UseVisualStyleBackColor = true;
@@ -213,17 +204,25 @@
             this.bttnOK.MouseEnter += new System.EventHandler(this.bttnOK_MouseEnter);
             this.bttnOK.MouseLeave += new System.EventHandler(this.bttnOK_MouseLeave);
             // 
+            // tbResult
+            // 
+            this.tbResult.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.tbResult.Location = new System.Drawing.Point(218, 116);
+            this.tbResult.Name = "tbResult";
+            this.tbResult.Size = new System.Drawing.Size(216, 22);
+            this.tbResult.TabIndex = 20;
+            // 
             // frmAddRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(421, 227);
+            this.ClientSize = new System.Drawing.Size(446, 227);
+            this.Controls.Add(this.tbResult);
             this.Controls.Add(this.bttnCancel);
             this.Controls.Add(this.bttnOK);
             this.Controls.Add(this.dateTimeResult);
             this.Controls.Add(this.datePickerRequest);
-            this.Controls.Add(this.cbResult);
             this.Controls.Add(this.cbNameAnalysis);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.label3);
@@ -235,7 +234,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddRequest";
+            this.Text = "Добавить заявку";
             this.Load += new System.EventHandler(this.frmAddRequest_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
@@ -248,18 +247,18 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label labelPanelReq;
         private System.Windows.Forms.PictureBox bttnClose;
         private System.Windows.Forms.Panel panelTopColor;
         private System.Windows.Forms.Label labelBirthday;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbNameAnalysis;
-        private System.Windows.Forms.DateTimePicker datePickerRequest;
-        private System.Windows.Forms.ComboBox cbResult;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimeResult;
         private System.Windows.Forms.Button bttnCancel;
-        private System.Windows.Forms.Button bttnOK;
+        public System.Windows.Forms.Button bttnOK;
+        public System.Windows.Forms.Label labelPanelReq;
+        public System.Windows.Forms.DateTimePicker datePickerRequest;
+        public System.Windows.Forms.ComboBox cbNameAnalysis;
+        public System.Windows.Forms.TextBox tbResult;
     }
 }

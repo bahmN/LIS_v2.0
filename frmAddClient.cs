@@ -11,7 +11,7 @@ namespace LIS
         {
             InitializeComponent();
             bttnOK.Text = "Далее";
-            labelPanelAdm.Text = "Добавить заявку";
+            labelPanelAdm.Text = "Добавить клиента";
             labelPanelAdm.Left = ( ClientSize.Width - labelPanelAdm.Width ) / 2;
             datePickerBirthday.MaxDate = DateTime.Now;
         }
@@ -65,20 +65,19 @@ namespace LIS
                     DialogResult = DialogResult.OK;
                     string passport = tbPassport.Text;
                     frmAddRequest FAR = new frmAddRequest(passport);
-                    Close();
+                    FAR.bttnOK.Text = "Добавить";
+                    FAR.labelPanelReq.Text = "Добавить заявку";
+                    FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
                     FAR.ShowDialog();
-
-                    
                 }
                 this.Close();
             }
-            else if (bttnOK.Text == "Изменить данные") {
+            else if (bttnOK.Text == "Изменить") {
                 MySqlCommand cChng = new MySqlCommand("UPDATE клиент SET `Номер и серия паспорта`= '" + tbPassport.Text + "', ФИО= '" + tbFN.Text + "', `Дата рождения`= '" + datePickerBirthday.Text + "', " +
                     "СНИЛС= '" + tbSNILS.Text + "', `Номер телефона`= '" + tbNumbPhone.Text + "', `Адрес проживания`= '" + tbAdress.Text + "', `e-mail`= '" + tbEMail.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
-                if (cChng.ExecuteNonQuery() == 1) {
-                    string passport = tbPassport.Text;
-                    frmAddRequest FAR = new frmAddRequest(passport);
-                    FAR.ShowDialog();
+                MySqlCommand cChng2 = new MySqlCommand("UPDATE заявка SET `Номер и серия паспорта`= '" + tbPassport.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
+                if (cChng.ExecuteNonQuery() == 1 && cChng2.ExecuteNonQuery() == 1) {
+                    DialogResult = DialogResult.OK;
                 }
             }
         }

@@ -10,12 +10,11 @@ namespace LIS
     {
         public frmAddRequest(string passport)
         {
-            InitializeComponent();
-            labelPanelReq.Text = "Добавить заявку";
-            bttnOK.Text = "Добавить заявку";
-            labelPanelReq.Left = ( ClientSize.Width - labelPanelReq.Width ) / 2;
+            InitializeComponent();            
             Passport = passport;
             datePickerRequest.Value = DateTime.Now;
+            datePickerRequest.MaxDate = DateTime.Now;
+            dateTimeResult.MaxDate = DateTime.Now;
         }
         static private string Passport;
         /*
@@ -61,22 +60,40 @@ namespace LIS
         }
 
         private void bttnOK_Click(object sender, EventArgs e)
-        {            
-            MySqlCommand cAdd = new MySqlCommand("INSERT INTO заявка(`Название анализа`, `Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения`) VALUES " +
-                "('" + cbNameAnalysis.Text + "', '" + Passport + "', '" + datePickerRequest.Text + "', '" + cbResult.Text + "', '" + dateTimeResult.Text + "')", frmAuthorization.connection);
-            if(cAdd.ExecuteNonQuery() == 1) {
-                DialogResult = DialogResult.OK;
+        {
+            if (bttnOK.Text == "Добавить") {
+                MySqlCommand cAdd = new MySqlCommand("INSERT INTO заявка(`Название анализа`, `Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения`) VALUES " +
+                    "('" + cbNameAnalysis.Text + "', '" + Passport + "', '" + datePickerRequest.Text + "', ' ', ' ')", frmAuthorization.connection);
+                if (cAdd.ExecuteNonQuery() == 1) {
+                    DialogResult = DialogResult.OK;
+                }
+            }
+            else if (bttnOK.Text == "Подтвердить") {
+                MySqlCommand cChng = new MySqlCommand("UPDATE заявка SET `Название анализа`= '" + cbNameAnalysis.Text + "', `Дата создания`= '" + datePickerRequest.Text + "', " +
+                    "Результат= '" + tbResult.Text + "', `Дата выполнения`= '" + dateTimeResult.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
+                if (cChng.ExecuteNonQuery() == 1) {
+                    DialogResult = DialogResult.OK;
+                }
             }
         }
 
         private void frmAddRequest_Load(object sender, EventArgs e)
         {
-            MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT `Название анализа` FROM услуги", frmAuthorization.connection);
-            DataTable dtServices = new DataTable();
-            daServices.Fill(dtServices);
-            cbNameAnalysis.DataSource = dtServices;
-            cbNameAnalysis.ValueMember = "Название анализа";
-            cbNameAnalysis.SelectedIndex = -1;
+            if (bttnOK.Text == "Добавить") {
+                MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT `Название анализа` FROM услуги", frmAuthorization.connection);
+                DataTable dtServices = new DataTable();
+                daServices.Fill(dtServices);
+                cbNameAnalysis.DataSource = dtServices;
+                cbNameAnalysis.ValueMember = "Название анализа";
+                cbNameAnalysis.SelectedIndex = -1;
+            }
+            else if (bttnOK.Text == "Подтвердить") {
+                MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT `Название анализа` FROM услуги", frmAuthorization.connection);
+                DataTable dtServices = new DataTable();
+                daServices.Fill(dtServices);
+                cbNameAnalysis.DataSource = dtServices;
+                cbNameAnalysis.ValueMember = "Название анализа";
+            }
         }
     }
 }

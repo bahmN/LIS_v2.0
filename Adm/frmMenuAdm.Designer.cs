@@ -28,8 +28,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuAdm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTopColor = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.bttnRollUp = new System.Windows.Forms.PictureBox();
@@ -50,10 +56,10 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.tabMenu = new System.Windows.Forms.TabControl();
-            this.pageClients = new System.Windows.Forms.TabPage();
-            this.dataTableClients = new System.Windows.Forms.DataGridView();
             this.pageRequests = new System.Windows.Forms.TabPage();
             this.dataTableRequests = new System.Windows.Forms.DataGridView();
+            this.pageClients = new System.Windows.Forms.TabPage();
+            this.dataTableClients = new System.Windows.Forms.DataGridView();
             this.pageServices = new System.Windows.Forms.TabPage();
             this.dataTableServices = new System.Windows.Forms.DataGridView();
             this.pageUsers = new System.Windows.Forms.TabPage();
@@ -67,10 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelCenter.SuspendLayout();
             this.tabMenu.SuspendLayout();
-            this.pageClients.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTableClients)).BeginInit();
             this.pageRequests.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableRequests)).BeginInit();
+            this.pageClients.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableClients)).BeginInit();
             this.pageServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableServices)).BeginInit();
             this.pageUsers.SuspendLayout();
@@ -214,10 +220,10 @@
             this.bttnImportDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnImportDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnImportDB.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnImportDB.Location = new System.Drawing.Point(7, 502);
+            this.bttnImportDB.Location = new System.Drawing.Point(0, 502);
             this.bttnImportDB.Margin = new System.Windows.Forms.Padding(1);
             this.bttnImportDB.Name = "bttnImportDB";
-            this.bttnImportDB.Size = new System.Drawing.Size(176, 29);
+            this.bttnImportDB.Size = new System.Drawing.Size(183, 29);
             this.bttnImportDB.TabIndex = 4;
             this.bttnImportDB.Text = "Импорт БД";
             this.bttnImportDB.UseVisualStyleBackColor = true;
@@ -234,10 +240,10 @@
             this.bttnExportDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnExportDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnExportDB.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnExportDB.Location = new System.Drawing.Point(7, 471);
+            this.bttnExportDB.Location = new System.Drawing.Point(0, 471);
             this.bttnExportDB.Margin = new System.Windows.Forms.Padding(1);
             this.bttnExportDB.Name = "bttnExportDB";
-            this.bttnExportDB.Size = new System.Drawing.Size(176, 29);
+            this.bttnExportDB.Size = new System.Drawing.Size(183, 29);
             this.bttnExportDB.TabIndex = 4;
             this.bttnExportDB.Text = "Экспорт БД";
             this.bttnExportDB.UseVisualStyleBackColor = true;
@@ -254,10 +260,10 @@
             this.bttnAddUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAddUser.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnAddUser.Location = new System.Drawing.Point(7, 423);
+            this.bttnAddUser.Location = new System.Drawing.Point(0, 440);
             this.bttnAddUser.Margin = new System.Windows.Forms.Padding(1);
             this.bttnAddUser.Name = "bttnAddUser";
-            this.bttnAddUser.Size = new System.Drawing.Size(176, 46);
+            this.bttnAddUser.Size = new System.Drawing.Size(183, 29);
             this.bttnAddUser.TabIndex = 4;
             this.bttnAddUser.Text = "Добавить пользователя";
             this.bttnAddUser.UseVisualStyleBackColor = true;
@@ -275,10 +281,10 @@
             this.bttnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnRefresh.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnRefresh.Location = new System.Drawing.Point(7, 338);
+            this.bttnRefresh.Location = new System.Drawing.Point(0, 338);
             this.bttnRefresh.Margin = new System.Windows.Forms.Padding(1);
             this.bttnRefresh.Name = "bttnRefresh";
-            this.bttnRefresh.Size = new System.Drawing.Size(176, 29);
+            this.bttnRefresh.Size = new System.Drawing.Size(183, 29);
             this.bttnRefresh.TabIndex = 4;
             this.bttnRefresh.Text = "Обновить БД";
             this.bttnRefresh.UseVisualStyleBackColor = true;
@@ -296,10 +302,10 @@
             this.bttnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnDelete.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnDelete.Location = new System.Drawing.Point(7, 307);
+            this.bttnDelete.Location = new System.Drawing.Point(0, 307);
             this.bttnDelete.Margin = new System.Windows.Forms.Padding(1);
             this.bttnDelete.Name = "bttnDelete";
-            this.bttnDelete.Size = new System.Drawing.Size(176, 29);
+            this.bttnDelete.Size = new System.Drawing.Size(183, 29);
             this.bttnDelete.TabIndex = 4;
             this.bttnDelete.Text = "Удалить";
             this.bttnDelete.UseVisualStyleBackColor = true;
@@ -317,10 +323,10 @@
             this.bttnChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnChange.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnChange.Location = new System.Drawing.Point(7, 276);
+            this.bttnChange.Location = new System.Drawing.Point(0, 276);
             this.bttnChange.Margin = new System.Windows.Forms.Padding(1);
             this.bttnChange.Name = "bttnChange";
-            this.bttnChange.Size = new System.Drawing.Size(176, 29);
+            this.bttnChange.Size = new System.Drawing.Size(183, 29);
             this.bttnChange.TabIndex = 4;
             this.bttnChange.Text = "Изменить";
             this.bttnChange.UseVisualStyleBackColor = true;
@@ -338,10 +344,10 @@
             this.bttnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAdd.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnAdd.Location = new System.Drawing.Point(7, 245);
+            this.bttnAdd.Location = new System.Drawing.Point(0, 245);
             this.bttnAdd.Margin = new System.Windows.Forms.Padding(1);
             this.bttnAdd.Name = "bttnAdd";
-            this.bttnAdd.Size = new System.Drawing.Size(176, 29);
+            this.bttnAdd.Size = new System.Drawing.Size(183, 29);
             this.bttnAdd.TabIndex = 4;
             this.bttnAdd.Text = "Добавить";
             this.bttnAdd.UseVisualStyleBackColor = true;
@@ -370,8 +376,8 @@
             // 
             // tabMenu
             // 
-            this.tabMenu.Controls.Add(this.pageClients);
             this.tabMenu.Controls.Add(this.pageRequests);
+            this.tabMenu.Controls.Add(this.pageClients);
             this.tabMenu.Controls.Add(this.pageServices);
             this.tabMenu.Controls.Add(this.pageUsers);
             this.tabMenu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -383,6 +389,48 @@
             this.tabMenu.Size = new System.Drawing.Size(981, 591);
             this.tabMenu.TabIndex = 0;
             this.tabMenu.SelectedIndexChanged += new System.EventHandler(this.tabMenu_SelectedIndexChanged);
+            // 
+            // pageRequests
+            // 
+            this.pageRequests.Controls.Add(this.dataTableRequests);
+            this.pageRequests.Location = new System.Drawing.Point(4, 28);
+            this.pageRequests.Name = "pageRequests";
+            this.pageRequests.Size = new System.Drawing.Size(973, 559);
+            this.pageRequests.TabIndex = 1;
+            this.pageRequests.Text = "Заявки";
+            this.pageRequests.UseVisualStyleBackColor = true;
+            // 
+            // dataTableRequests
+            // 
+            this.dataTableRequests.AllowUserToResizeRows = false;
+            this.dataTableRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataTableRequests.BackgroundColor = System.Drawing.Color.White;
+            this.dataTableRequests.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataTableRequests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableRequests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataTableRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableRequests.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataTableRequests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataTableRequests.Location = new System.Drawing.Point(0, 0);
+            this.dataTableRequests.Name = "dataTableRequests";
+            this.dataTableRequests.ReadOnly = true;
+            this.dataTableRequests.Size = new System.Drawing.Size(973, 559);
+            this.dataTableRequests.TabIndex = 1;
+            this.dataTableRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableRequests_CellClick);
             // 
             // pageClients
             // 
@@ -401,23 +449,23 @@
             this.dataTableClients.BackgroundColor = System.Drawing.Color.White;
             this.dataTableClients.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataTableClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataTableClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataTableClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableClients.Location = new System.Drawing.Point(0, 0);
             this.dataTableClients.Name = "dataTableClients";
@@ -425,29 +473,6 @@
             this.dataTableClients.Size = new System.Drawing.Size(973, 559);
             this.dataTableClients.TabIndex = 0;
             this.dataTableClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableClients_CellClick);
-            // 
-            // pageRequests
-            // 
-            this.pageRequests.Controls.Add(this.dataTableRequests);
-            this.pageRequests.Location = new System.Drawing.Point(4, 28);
-            this.pageRequests.Name = "pageRequests";
-            this.pageRequests.Size = new System.Drawing.Size(973, 559);
-            this.pageRequests.TabIndex = 1;
-            this.pageRequests.Text = "Заявки";
-            this.pageRequests.UseVisualStyleBackColor = true;
-            // 
-            // dataTableRequests
-            // 
-            this.dataTableRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataTableRequests.BackgroundColor = System.Drawing.Color.White;
-            this.dataTableRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTableRequests.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataTableRequests.Location = new System.Drawing.Point(0, 0);
-            this.dataTableRequests.Name = "dataTableRequests";
-            this.dataTableRequests.ReadOnly = true;
-            this.dataTableRequests.Size = new System.Drawing.Size(973, 559);
-            this.dataTableRequests.TabIndex = 1;
-            this.dataTableRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableRequests_CellClick);
             // 
             // pageServices
             // 
@@ -463,7 +488,25 @@
             // 
             this.dataTableServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableServices.BackgroundColor = System.Drawing.Color.White;
+            this.dataTableServices.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataTableServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataTableServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableServices.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataTableServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableServices.Location = new System.Drawing.Point(0, 0);
             this.dataTableServices.Name = "dataTableServices";
@@ -486,7 +529,25 @@
             // 
             this.dataTableUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableUsers.BackgroundColor = System.Drawing.Color.White;
+            this.dataTableUsers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataTableUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataTableUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableUsers.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataTableUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableUsers.Location = new System.Drawing.Point(0, 0);
             this.dataTableUsers.Name = "dataTableUsers";
@@ -508,6 +569,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuAdm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Панель администратора";
             this.Load += new System.EventHandler(this.frmMenuAdm_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
@@ -520,10 +582,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panelCenter.ResumeLayout(false);
             this.tabMenu.ResumeLayout(false);
-            this.pageClients.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataTableClients)).EndInit();
             this.pageRequests.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableRequests)).EndInit();
+            this.pageClients.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableClients)).EndInit();
             this.pageServices.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableServices)).EndInit();
             this.pageUsers.ResumeLayout(false);

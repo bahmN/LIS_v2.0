@@ -176,7 +176,7 @@
             this.bttnOK.Name = "bttnOK";
             this.bttnOK.Size = new System.Drawing.Size(393, 26);
             this.bttnOK.TabIndex = 14;
-            this.bttnOK.Text = "Добавить";
+            this.bttnOK.Text = "bttn";
             this.bttnOK.UseVisualStyleBackColor = true;
             this.bttnOK.Click += new System.EventHandler(this.bttnOK_Click);
             this.bttnOK.MouseEnter += new System.EventHandler(this.bttnOK_MouseEnter);
@@ -201,9 +201,8 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmAddServices";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddServices";
+            this.Text = "Добавить услуги";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).EndInit();
@@ -215,17 +214,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label labelPanelAdm;
         private System.Windows.Forms.PictureBox bttnClose;
         private System.Windows.Forms.Panel panelTopColor;
         private System.Windows.Forms.Label labeName;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.Label labelPrice;
-        private System.Windows.Forms.TextBox tbTerm;
         private System.Windows.Forms.Label labelTerm;
-        private System.Windows.Forms.TextBox tbRecommendation;
         private System.Windows.Forms.Label labelRecommendation;
-        private System.Windows.Forms.Button bttnOK;
+        public System.Windows.Forms.TextBox tbPrice;
+        public System.Windows.Forms.TextBox tbTerm;
+        public System.Windows.Forms.TextBox tbRecommendation;
+        public System.Windows.Forms.TextBox tbName;
+        public System.Windows.Forms.Button bttnOK;
+        public System.Windows.Forms.Label labelPanelAdm;
     }
 }
