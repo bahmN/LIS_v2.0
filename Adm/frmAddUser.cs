@@ -8,10 +8,12 @@ namespace LIS.Adm
 {
     public partial class frmAddUser : Form
     {
-        public frmAddUser()
+        public frmAddUser(string id)
         {
             InitializeComponent();
+            ID = id;
         }
+        static private string ID;
         protected override CreateParams CreateParams
         {
             get
@@ -46,10 +48,19 @@ namespace LIS.Adm
                 ER.Show();
             }
             else {
-                string Password = Hashing.HashPassword(tbPassword.Text);
-                MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorization.connection);
-                if (cAdd.ExecuteNonQuery() == 1) {
-                    DialogResult = DialogResult.OK;
+                if (bttnOK.Text == "Зарегистрировать") {
+                    string Password = Hashing.HashPassword(tbPassword.Text);
+                    MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorization.connection);
+                    if (cAdd.ExecuteNonQuery() == 1) {
+                        DialogResult = DialogResult.OK;
+                    }
+                }
+                else if (bttnOK.Text == "Изменить") {
+                    string Password = Hashing.HashPassword(tbPassword.Text);
+                    MySqlCommand cAdd = new MySqlCommand("UPDATE пользователь SET Логин= '" + tbLogin.Text + "', Пароль='" + Password + "', ФИО= '" + tbFN.Text + "' WHERE ID= '" + ID + "'", frmAuthorization.connection);
+                    if (cAdd.ExecuteNonQuery() == 1) {
+                        DialogResult = DialogResult.OK;
+                    }
                 }
             }
         }

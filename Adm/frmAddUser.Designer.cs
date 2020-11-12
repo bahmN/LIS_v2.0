@@ -236,16 +236,16 @@
         private System.Windows.Forms.PictureBox bttnClose;
         private System.Windows.Forms.Panel panelTopColor;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label labelPanelAdm;
         private System.Windows.Forms.Label labeLogin;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.Button bttnOK;
-        private System.Windows.Forms.TextBox tbLogin;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.TextBox tbFN;
         private System.Windows.Forms.Label labelFN;
         private System.Windows.Forms.TextBox tbPassword2;
         private System.Windows.Forms.Label labelPassword2;
         private System.Windows.Forms.PictureBox bttnLookPassword;
+        public System.Windows.Forms.Label labelPanelAdm;
+        public System.Windows.Forms.Button bttnOK;
+        public System.Windows.Forms.TextBox tbLogin;
+        public System.Windows.Forms.TextBox tbFN;
     }
 }
