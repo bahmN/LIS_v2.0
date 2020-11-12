@@ -41,3 +41,5 @@ D:\C_Sharp\LIS\obj\Debug\LIS.frmAddRequest.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.Errors.ErrorClient.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.frmAuthorization.resources
 D:\C_Sharp\LIS\obj\Debug\LIS.Adm.frmAddServices.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.Errors.ErrorAuthorization.resources
+D:\C_Sharp\LIS\obj\Debug\LIS.Adm.frmCheckPassword.resources

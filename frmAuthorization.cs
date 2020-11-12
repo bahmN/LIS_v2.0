@@ -1,4 +1,5 @@
 ﻿using LIS.Adm;
+using LIS.Errors;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -62,12 +63,23 @@ namespace LIS
             connection = new MySqlConnection("server = 127.0.0.1; port = 3306; user = root; password = Vfhnvfhn23@; database = lis; sslmode = none;");
             connection.Open();
 
+            string Password = Hashing.HashPassword(tbPassword.Text);
+
             if (chckBoxAdm.Checked == true) {
-                frmMenuAdm FMA = new frmMenuAdm();                
-                FMA.ShowDialog();
+                MySqlCommand cSelect = new MySqlCommand("SELECT * FROM администратор WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
+                MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
+                DataTable dtSelect = new DataTable();
+                daSelect.Fill(dtSelect);
+                if (dtSelect.Rows.Count > 0) {
+                    frmMenuAdm FMA = new frmMenuAdm();
+                    FMA.ShowDialog();
+                }
+                else {
+                    ErrorAuthorization EA = new ErrorAuthorization();
+                    EA.Show();
+                }                
             }
             else {
-                string Password = Hashing.HashPassword(tbPassword.Text);
                 MySqlCommand cSelect = new MySqlCommand("SELECT * FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
                 MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
                 DataTable dtSelect = new DataTable();
@@ -76,7 +88,8 @@ namespace LIS
                     MessageBox.Show("1");
                 }
                 else {
-                    MessageBox.Show("0");
+                    ErrorAuthorization EA = new ErrorAuthorization();
+                    EA.Show();
                 }
             }
         }

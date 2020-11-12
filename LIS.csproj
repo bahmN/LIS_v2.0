@@ -98,12 +98,24 @@
     <Compile Include="Adm\frmAddServices.Designer.cs">
       <DependentUpon>frmAddServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adm\frmCheckPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adm\frmCheckPassword.Designer.cs">
+      <DependentUpon>frmCheckPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Adm\Hashing.cs" />
     <Compile Include="Adm\frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Adm\frmAddUser.Designer.cs">
       <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ErrorAuthorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Errors\ErrorAuthorization.Designer.cs">
+      <DependentUpon>ErrorAuthorization.cs</DependentUpon>
     </Compile>
     <Compile Include="Errors\ErrorChangeData.cs">
       <SubType>Form</SubType>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Adm\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adm\frmCheckPassword.resx">
+      <DependentUpon>frmCheckPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Errors\ErrorAuthorization.resx">
+      <DependentUpon>ErrorAuthorization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Errors\ErrorChangeData.resx">
       <DependentUpon>ErrorChangeData.cs</DependentUpon>

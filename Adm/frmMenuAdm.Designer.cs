@@ -28,14 +28,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuAdm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTopColor = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.bttnRollUp = new System.Windows.Forms.PictureBox();
@@ -44,6 +46,7 @@
             this.bttnFullS = new System.Windows.Forms.PictureBox();
             this.bttnNormalS = new System.Windows.Forms.PictureBox();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.bttnChngUser = new System.Windows.Forms.Button();
             this.labelSearch = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.bttnImportDB = new System.Windows.Forms.Button();
@@ -63,7 +66,13 @@
             this.pageServices = new System.Windows.Forms.TabPage();
             this.dataTableServices = new System.Windows.Forms.DataGridView();
             this.pageUsers = new System.Windows.Forms.TabPage();
+            this.labelAdm = new System.Windows.Forms.Label();
+            this.labelUsers = new System.Windows.Forms.Label();
+            this.dataTableAdm = new System.Windows.Forms.DataGridView();
             this.dataTableUsers = new System.Windows.Forms.DataGridView();
+            this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.bttnDeleteUser = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bttnRollUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).BeginInit();
@@ -80,6 +89,7 @@
             this.pageServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableServices)).BeginInit();
             this.pageUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableAdm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,6 +183,8 @@
             // 
             // panelLeft
             // 
+            this.panelLeft.Controls.Add(this.bttnDeleteUser);
+            this.panelLeft.Controls.Add(this.bttnChngUser);
             this.panelLeft.Controls.Add(this.labelSearch);
             this.panelLeft.Controls.Add(this.tbSearch);
             this.panelLeft.Controls.Add(this.bttnImportDB);
@@ -188,6 +200,27 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(190, 591);
             this.panelLeft.TabIndex = 3;
+            // 
+            // bttnChngUser
+            // 
+            this.bttnChngUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bttnChngUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttnChngUser.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bttnChngUser.FlatAppearance.BorderSize = 0;
+            this.bttnChngUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttnChngUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            this.bttnChngUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnChngUser.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.bttnChngUser.Location = new System.Drawing.Point(0, 385);
+            this.bttnChngUser.Margin = new System.Windows.Forms.Padding(1);
+            this.bttnChngUser.Name = "bttnChngUser";
+            this.bttnChngUser.Size = new System.Drawing.Size(190, 53);
+            this.bttnChngUser.TabIndex = 6;
+            this.bttnChngUser.Text = "Изменить данные пользователя";
+            this.bttnChngUser.UseVisualStyleBackColor = true;
+            this.bttnChngUser.Click += new System.EventHandler(this.bttnChngUser_Click);
+            this.bttnChngUser.MouseEnter += new System.EventHandler(this.bttnChngUser_MouseEnter);
+            this.bttnChngUser.MouseLeave += new System.EventHandler(this.bttnChngUser_MouseLeave);
             // 
             // labelSearch
             // 
@@ -223,10 +256,11 @@
             this.bttnImportDB.Location = new System.Drawing.Point(0, 502);
             this.bttnImportDB.Margin = new System.Windows.Forms.Padding(1);
             this.bttnImportDB.Name = "bttnImportDB";
-            this.bttnImportDB.Size = new System.Drawing.Size(183, 29);
+            this.bttnImportDB.Size = new System.Drawing.Size(190, 29);
             this.bttnImportDB.TabIndex = 4;
             this.bttnImportDB.Text = "Импорт БД";
             this.bttnImportDB.UseVisualStyleBackColor = true;
+            this.bttnImportDB.Click += new System.EventHandler(this.bttnImportDB_Click);
             this.bttnImportDB.MouseEnter += new System.EventHandler(this.bttnImportDB_MouseEnter);
             this.bttnImportDB.MouseLeave += new System.EventHandler(this.bttnImportDB_MouseLeave);
             // 
@@ -243,10 +277,11 @@
             this.bttnExportDB.Location = new System.Drawing.Point(0, 471);
             this.bttnExportDB.Margin = new System.Windows.Forms.Padding(1);
             this.bttnExportDB.Name = "bttnExportDB";
-            this.bttnExportDB.Size = new System.Drawing.Size(183, 29);
+            this.bttnExportDB.Size = new System.Drawing.Size(190, 29);
             this.bttnExportDB.TabIndex = 4;
             this.bttnExportDB.Text = "Экспорт БД";
             this.bttnExportDB.UseVisualStyleBackColor = true;
+            this.bttnExportDB.Click += new System.EventHandler(this.bttnExportDB_Click);
             this.bttnExportDB.MouseEnter += new System.EventHandler(this.bttnExportDB_MouseEnter);
             this.bttnExportDB.MouseLeave += new System.EventHandler(this.bttnExportDB_MouseLeave);
             // 
@@ -260,10 +295,10 @@
             this.bttnAddUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAddUser.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnAddUser.Location = new System.Drawing.Point(0, 440);
+            this.bttnAddUser.Location = new System.Drawing.Point(0, 354);
             this.bttnAddUser.Margin = new System.Windows.Forms.Padding(1);
             this.bttnAddUser.Name = "bttnAddUser";
-            this.bttnAddUser.Size = new System.Drawing.Size(183, 29);
+            this.bttnAddUser.Size = new System.Drawing.Size(190, 29);
             this.bttnAddUser.TabIndex = 4;
             this.bttnAddUser.Text = "Добавить пользователя";
             this.bttnAddUser.UseVisualStyleBackColor = true;
@@ -281,10 +316,10 @@
             this.bttnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnRefresh.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnRefresh.Location = new System.Drawing.Point(0, 338);
+            this.bttnRefresh.Location = new System.Drawing.Point(0, 297);
             this.bttnRefresh.Margin = new System.Windows.Forms.Padding(1);
             this.bttnRefresh.Name = "bttnRefresh";
-            this.bttnRefresh.Size = new System.Drawing.Size(183, 29);
+            this.bttnRefresh.Size = new System.Drawing.Size(190, 29);
             this.bttnRefresh.TabIndex = 4;
             this.bttnRefresh.Text = "Обновить БД";
             this.bttnRefresh.UseVisualStyleBackColor = true;
@@ -302,10 +337,10 @@
             this.bttnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnDelete.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnDelete.Location = new System.Drawing.Point(0, 307);
+            this.bttnDelete.Location = new System.Drawing.Point(0, 266);
             this.bttnDelete.Margin = new System.Windows.Forms.Padding(1);
             this.bttnDelete.Name = "bttnDelete";
-            this.bttnDelete.Size = new System.Drawing.Size(183, 29);
+            this.bttnDelete.Size = new System.Drawing.Size(190, 29);
             this.bttnDelete.TabIndex = 4;
             this.bttnDelete.Text = "Удалить";
             this.bttnDelete.UseVisualStyleBackColor = true;
@@ -323,10 +358,10 @@
             this.bttnChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnChange.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnChange.Location = new System.Drawing.Point(0, 276);
+            this.bttnChange.Location = new System.Drawing.Point(0, 235);
             this.bttnChange.Margin = new System.Windows.Forms.Padding(1);
             this.bttnChange.Name = "bttnChange";
-            this.bttnChange.Size = new System.Drawing.Size(183, 29);
+            this.bttnChange.Size = new System.Drawing.Size(190, 29);
             this.bttnChange.TabIndex = 4;
             this.bttnChange.Text = "Изменить";
             this.bttnChange.UseVisualStyleBackColor = true;
@@ -344,10 +379,10 @@
             this.bttnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAdd.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnAdd.Location = new System.Drawing.Point(0, 245);
+            this.bttnAdd.Location = new System.Drawing.Point(0, 204);
             this.bttnAdd.Margin = new System.Windows.Forms.Padding(1);
             this.bttnAdd.Name = "bttnAdd";
-            this.bttnAdd.Size = new System.Drawing.Size(183, 29);
+            this.bttnAdd.Size = new System.Drawing.Size(190, 29);
             this.bttnAdd.TabIndex = 4;
             this.bttnAdd.Text = "Добавить";
             this.bttnAdd.UseVisualStyleBackColor = true;
@@ -407,23 +442,23 @@
             this.dataTableRequests.BackgroundColor = System.Drawing.Color.White;
             this.dataTableRequests.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataTableRequests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataTableRequests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableRequests.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dataTableRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataTableRequests.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableRequests.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataTableRequests.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableRequests.Location = new System.Drawing.Point(0, 0);
             this.dataTableRequests.Name = "dataTableRequests";
@@ -449,23 +484,23 @@
             this.dataTableClients.BackgroundColor = System.Drawing.Color.White;
             this.dataTableClients.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataTableClients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.dataTableClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableClients.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataTableClients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableClients.Location = new System.Drawing.Point(0, 0);
             this.dataTableClients.Name = "dataTableClients";
@@ -490,23 +525,23 @@
             this.dataTableServices.BackgroundColor = System.Drawing.Color.White;
             this.dataTableServices.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataTableServices.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataTableServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableServices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dataTableServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataTableServices.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableServices.DefaultCellStyle = dataGridViewCellStyle36;
             this.dataTableServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataTableServices.Location = new System.Drawing.Point(0, 0);
             this.dataTableServices.Name = "dataTableServices";
@@ -517,6 +552,9 @@
             // 
             // pageUsers
             // 
+            this.pageUsers.Controls.Add(this.labelAdm);
+            this.pageUsers.Controls.Add(this.labelUsers);
+            this.pageUsers.Controls.Add(this.dataTableAdm);
             this.pageUsers.Controls.Add(this.dataTableUsers);
             this.pageUsers.Location = new System.Drawing.Point(4, 28);
             this.pageUsers.Name = "pageUsers";
@@ -525,36 +563,112 @@
             this.pageUsers.Text = "Пользователи";
             this.pageUsers.UseVisualStyleBackColor = true;
             // 
+            // labelAdm
+            // 
+            this.labelAdm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelAdm.AutoSize = true;
+            this.labelAdm.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAdm.Location = new System.Drawing.Point(413, 385);
+            this.labelAdm.Name = "labelAdm";
+            this.labelAdm.Size = new System.Drawing.Size(146, 18);
+            this.labelAdm.TabIndex = 6;
+            this.labelAdm.Text = "Администраторы";
+            // 
+            // labelUsers
+            // 
+            this.labelUsers.AutoSize = true;
+            this.labelUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelUsers.Location = new System.Drawing.Point(429, 4);
+            this.labelUsers.Name = "labelUsers";
+            this.labelUsers.Size = new System.Drawing.Size(114, 18);
+            this.labelUsers.TabIndex = 5;
+            this.labelUsers.Text = "Пользователи";
+            // 
+            // dataTableAdm
+            // 
+            this.dataTableAdm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataTableAdm.BackgroundColor = System.Drawing.Color.White;
+            this.dataTableAdm.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataTableAdm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableAdm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            this.dataTableAdm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableAdm.DefaultCellStyle = dataGridViewCellStyle38;
+            this.dataTableAdm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataTableAdm.Location = new System.Drawing.Point(0, 406);
+            this.dataTableAdm.Name = "dataTableAdm";
+            this.dataTableAdm.ReadOnly = true;
+            this.dataTableAdm.Size = new System.Drawing.Size(973, 153);
+            this.dataTableAdm.TabIndex = 4;
+            this.dataTableAdm.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableAdm_CellClick);
+            // 
             // dataTableUsers
             // 
+            this.dataTableUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataTableUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataTableUsers.BackgroundColor = System.Drawing.Color.White;
             this.dataTableUsers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataTableUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataTableUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataTableUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.dataTableUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataTableUsers.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataTableUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataTableUsers.Location = new System.Drawing.Point(0, 0);
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataTableUsers.DefaultCellStyle = dataGridViewCellStyle40;
+            this.dataTableUsers.Location = new System.Drawing.Point(0, 25);
             this.dataTableUsers.Name = "dataTableUsers";
             this.dataTableUsers.ReadOnly = true;
-            this.dataTableUsers.Size = new System.Drawing.Size(973, 559);
+            this.dataTableUsers.Size = new System.Drawing.Size(973, 357);
             this.dataTableUsers.TabIndex = 3;
             this.dataTableUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableUsers_CellClick);
+            // 
+            // bttnDeleteUser
+            // 
+            this.bttnDeleteUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bttnDeleteUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bttnDeleteUser.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bttnDeleteUser.FlatAppearance.BorderSize = 0;
+            this.bttnDeleteUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttnDeleteUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            this.bttnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnDeleteUser.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.bttnDeleteUser.Location = new System.Drawing.Point(0, 440);
+            this.bttnDeleteUser.Margin = new System.Windows.Forms.Padding(1);
+            this.bttnDeleteUser.Name = "bttnDeleteUser";
+            this.bttnDeleteUser.Size = new System.Drawing.Size(190, 29);
+            this.bttnDeleteUser.TabIndex = 7;
+            this.bttnDeleteUser.Text = "Удалить пользователя";
+            this.bttnDeleteUser.UseVisualStyleBackColor = true;
+            this.bttnDeleteUser.Click += new System.EventHandler(this.bttnDeleteUser_Click);
+            this.bttnDeleteUser.MouseEnter += new System.EventHandler(this.bttnDeleteUser_MouseEnter);
+            this.bttnDeleteUser.MouseLeave += new System.EventHandler(this.bttnDeleteUser_MouseLeave);
             // 
             // frmMenuAdm
             // 
@@ -589,6 +703,8 @@
             this.pageServices.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableServices)).EndInit();
             this.pageUsers.ResumeLayout(false);
+            this.pageUsers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTableAdm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableUsers)).EndInit();
             this.ResumeLayout(false);
 
@@ -624,5 +740,12 @@
         private System.Windows.Forms.DataGridView dataTableServices;
         private System.Windows.Forms.TabPage pageUsers;
         private System.Windows.Forms.DataGridView dataTableUsers;
+        private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.DataGridView dataTableAdm;
+        private System.Windows.Forms.Label labelAdm;
+        private System.Windows.Forms.Label labelUsers;
+        private System.Windows.Forms.Button bttnChngUser;
+        private System.Windows.Forms.Button bttnDeleteUser;
     }
 }
