@@ -38,10 +38,11 @@ namespace LIS.Adm
                     DialogResult = DialogResult.OK;
                 }
             }
-            else if(bttnOK.Text == "Изменить") {
-                MySqlCommand cChng = new MySqlCommand("UPDATE услуги SET `Название анализа`= '" + tbName.Text+ "', Цена= '" + tbPrice.Text + "', " +
+            else if (bttnOK.Text == "Изменить") {
+                MySqlCommand cChng = new MySqlCommand("UPDATE услуги SET `Название анализа`= '" + tbName.Text + "', Цена= '" + tbPrice.Text + "', " +
                     "`Срок выполнения`= '" + tbTerm.Text + "', Рекомендации= '" + tbRecommendation.Text + "' WHERE `Название анализа`= '" + Name + "'", frmAuthorization.connection);
-                if (cChng.ExecuteNonQuery() == 1) {
+                MySqlCommand cChng2 = new MySqlCommand("UPDATE заявка SET `Название анализа`= '" + tbName.Text + "' WHERE `Название анализа`= '" + Name + "'", frmAuthorization.connection);
+                if (cChng.ExecuteNonQuery() == 1 && cChng2.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }
             }
