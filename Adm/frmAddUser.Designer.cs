@@ -42,6 +42,7 @@
             this.tbPassword2 = new System.Windows.Forms.TextBox();
             this.labelPassword2 = new System.Windows.Forms.Label();
             this.bttnLookPassword = new System.Windows.Forms.PictureBox();
+            this.chckBoxAdm = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bttnLookPassword)).BeginInit();
@@ -139,7 +140,7 @@
             this.bttnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnOK.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnOK.Location = new System.Drawing.Point(0, 168);
+            this.bttnOK.Location = new System.Drawing.Point(0, 194);
             this.bttnOK.Name = "bttnOK";
             this.bttnOK.Size = new System.Drawing.Size(393, 26);
             this.bttnOK.TabIndex = 13;
@@ -199,12 +200,26 @@
             this.bttnLookPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bttnLookPassword_MouseDown);
             this.bttnLookPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bttnLookPassword_MouseUp);
             // 
+            // chckBoxAdm
+            // 
+            this.chckBoxAdm.AutoSize = true;
+            this.chckBoxAdm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chckBoxAdm.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.chckBoxAdm.Location = new System.Drawing.Point(178, 168);
+            this.chckBoxAdm.Name = "chckBoxAdm";
+            this.chckBoxAdm.Size = new System.Drawing.Size(203, 23);
+            this.chckBoxAdm.TabIndex = 15;
+            this.chckBoxAdm.Text = "Права администратора";
+            this.chckBoxAdm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chckBoxAdm.UseVisualStyleBackColor = true;
+            // 
             // frmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(393, 206);
+            this.ClientSize = new System.Drawing.Size(393, 232);
+            this.Controls.Add(this.chckBoxAdm);
             this.Controls.Add(this.bttnLookPassword);
             this.Controls.Add(this.bttnOK);
             this.Controls.Add(this.labelFN);
@@ -247,5 +262,6 @@
         public System.Windows.Forms.Button bttnOK;
         public System.Windows.Forms.TextBox tbLogin;
         public System.Windows.Forms.TextBox tbFN;
+        private System.Windows.Forms.CheckBox chckBoxAdm;
     }
 }

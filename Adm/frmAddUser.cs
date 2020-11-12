@@ -48,18 +48,38 @@ namespace LIS.Adm
                 ER.Show();
             }
             else {
-                if (bttnOK.Text == "Зарегистрировать") {
-                    string Password = Hashing.HashPassword(tbPassword.Text);
-                    MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorization.connection);
-                    if (cAdd.ExecuteNonQuery() == 1) {
-                        DialogResult = DialogResult.OK;
+                //Administration
+                if (chckBoxAdm.Checked == true) {
+                    if (bttnOK.Text == "Зарегистрировать") {
+                        string Password = Hashing.HashPassword(tbPassword.Text);
+                        MySqlCommand cAdd = new MySqlCommand("INSERT INTO администратор(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorization.connection);
+                        if (cAdd.ExecuteNonQuery() == 1) {
+                            DialogResult = DialogResult.OK;
+                        }
+                    }
+                    else if (bttnOK.Text == "Изменить") {
+                        string Password = Hashing.HashPassword(tbPassword.Text);
+                        MySqlCommand cAdd = new MySqlCommand("UPDATE администратор SET Логин= '" + tbLogin.Text + "', Пароль='" + Password + "', ФИО= '" + tbFN.Text + "' WHERE ID= '" + ID + "'", frmAuthorization.connection);
+                        if (cAdd.ExecuteNonQuery() == 1) {
+                            DialogResult = DialogResult.OK;
+                        }
                     }
                 }
-                else if (bttnOK.Text == "Изменить") {
-                    string Password = Hashing.HashPassword(tbPassword.Text);
-                    MySqlCommand cAdd = new MySqlCommand("UPDATE пользователь SET Логин= '" + tbLogin.Text + "', Пароль='" + Password + "', ФИО= '" + tbFN.Text + "' WHERE ID= '" + ID + "'", frmAuthorization.connection);
-                    if (cAdd.ExecuteNonQuery() == 1) {
-                        DialogResult = DialogResult.OK;
+                //User
+                else {
+                    if (bttnOK.Text == "Зарегистрировать") {
+                        string Password = Hashing.HashPassword(tbPassword.Text);
+                        MySqlCommand cAdd = new MySqlCommand("INSERT INTO пользователь(Логин, Пароль, ФИО) VALUES ('" + tbLogin.Text + "', '" + Password + "', '" + tbFN.Text + "')", frmAuthorization.connection);
+                        if (cAdd.ExecuteNonQuery() == 1) {
+                            DialogResult = DialogResult.OK;
+                        }
+                    }
+                    else if (bttnOK.Text == "Изменить") {
+                        string Password = Hashing.HashPassword(tbPassword.Text);
+                        MySqlCommand cAdd = new MySqlCommand("UPDATE пользователь SET Логин= '" + tbLogin.Text + "', Пароль='" + Password + "', ФИО= '" + tbFN.Text + "' WHERE ID= '" + ID + "'", frmAuthorization.connection);
+                        if (cAdd.ExecuteNonQuery() == 1) {
+                            DialogResult = DialogResult.OK;
+                        }
                     }
                 }
             }
