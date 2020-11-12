@@ -72,12 +72,12 @@ namespace LIS
          */
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(tbSearch.Text)) {
-            //    labelSearch.ForeColor = DefaultForeColor;
-            //}
-            //else {
-            //    labelSearch.ForeColor = ColorTranslator.FromHtml("#5c192f");
-            //}
+            if (string.IsNullOrWhiteSpace(tbSearch.Text)) {
+                labelSearch.ForeColor = DefaultForeColor;
+            }
+            else {
+                labelSearch.ForeColor = ColorTranslator.FromHtml("#5c192f");
+            }
             /*
              * Searching
              */
@@ -183,6 +183,16 @@ namespace LIS
         {
             bttnImportDB.ForeColor = DefaultForeColor;
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x00020000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
         //----------------------------------------------------------------------
         private void frmMenuAdm_Load(object sender, EventArgs e)
         {
@@ -230,6 +240,7 @@ namespace LIS
                 dataTableUsers.RowHeadersVisible = false; // Убрать отображение самой левой колонки
                 dataTableUsers.AllowUserToAddRows = false; // Убрать отображение самой нижней строки
                 dataTableUsers.Columns[0].Width = 35;
+                dataTableUsers.Columns[1].Width = 125;
             }
         }
 
@@ -323,6 +334,18 @@ namespace LIS
                         bttnRefresh_Click(sender, e);
                     }
                 }
+                else if (tabMenu.SelectedTab == pageUsers) {
+                    frmAddUser FAU = new frmAddUser(dataTableUsers.SelectedRows[0].Cells[0].Value.ToString());
+                    FAU.tbLogin.Text = dataTableUsers.SelectedRows[0].Cells[1].Value.ToString();
+                    FAU.tbFN.Text = dataTableUsers.SelectedRows[0].Cells[3].Value.ToString();
+                    FAU.bttnOK.Text = "Изменить";
+                    FAU.labelPanelAdm.Text = "Изменить данные пользователя";
+                    FAU.labelPanelAdm.Left = ( ClientSize.Width - FAU.labelPanelAdm.Width ) / 2;
+                    FAU.ShowDialog();
+                    if (FAU.DialogResult == DialogResult.OK) {
+                        bttnRefresh_Click(sender, e);
+                    }
+                }
             }
             catch {
                 ErrorChangeData errorCD = new ErrorChangeData();
@@ -401,7 +424,7 @@ namespace LIS
          */
         private void bttnAddUser_Click(object sender, EventArgs e)
         {
-            frmAddUser FAU = new frmAddUser();
+            frmAddUser FAU = new frmAddUser(null);
             FAU.ShowDialog();
             if (FAU.DialogResult == DialogResult.OK) {
                 bttnRefresh_Click(sender, e);
