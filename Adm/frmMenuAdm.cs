@@ -312,7 +312,7 @@ namespace LIS
                     dataTableUsers.Columns[0].Width = 35;
 
                     //Administrations
-                    MySqlDataAdapter daAdm = new MySqlDataAdapter("SELECT `ID администратора`, Логин, ФИО FROM администратор", frmAuthorization.connection);
+                    MySqlDataAdapter daAdm = new MySqlDataAdapter("SELECT `ID администратора`, Логин, ФИО FROM администраторы", frmAuthorization.connection);
                     DataTable dtAdm = new DataTable();
                     daAdm.Fill(dtAdm);
                     dataTableAdm.DataSource = dtAdm;
@@ -564,7 +564,7 @@ namespace LIS
             }
             else if (AdmUsr == "Admin") {
                 for (var i = 0; i < dataTableAdm.SelectedRows.Count; i++) {
-                    MySqlCommand commandD = new MySqlCommand("DELETE FROM администратор WHERE `" + dataTableAdm.Columns[0].HeaderText + "` = '" + dataTableAdm.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
+                    MySqlCommand commandD = new MySqlCommand("DELETE FROM администраторы WHERE `" + dataTableAdm.Columns[0].HeaderText + "` = '" + dataTableAdm.SelectedRows[i].Cells[0].Value.ToString() + "'", frmAuthorization.connection);
                     commandD.ExecuteNonQuery();
                 }
                 bttnRefresh_Click(sender, e);

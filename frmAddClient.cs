@@ -70,7 +70,6 @@ namespace LIS
                     FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
                     FAR.ShowDialog();
                 }
-                this.Close();
             }
             else if (bttnOK.Text == "Изменить") {
                 MySqlCommand cChng = new MySqlCommand("UPDATE клиент SET `Номер и серия паспорта`= '" + tbPassport.Text + "', ФИО= '" + tbFN.Text + "', `Дата рождения`= '" + datePickerBirthday.Text + "', " +

@@ -108,11 +108,11 @@
             // 
             this.labelAuthorization.AutoSize = true;
             this.labelAuthorization.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAuthorization.Location = new System.Drawing.Point(103, 18);
+            this.labelAuthorization.Location = new System.Drawing.Point(83, 18);
             this.labelAuthorization.Name = "labelAuthorization";
-            this.labelAuthorization.Size = new System.Drawing.Size(131, 18);
+            this.labelAuthorization.Size = new System.Drawing.Size(170, 18);
             this.labelAuthorization.TabIndex = 1;
-            this.labelAuthorization.Text = "Введите пароль";
+            this.labelAuthorization.Text = "Подтвердите пароль";
             // 
             // bttnClose
             // 
