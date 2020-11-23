@@ -38,6 +38,7 @@
             this.bttnClose = new System.Windows.Forms.PictureBox();
             this.bttnFullS = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.labelActiveUser = new System.Windows.Forms.Label();
             this.labelPanelUser = new System.Windows.Forms.Label();
             this.panelTopColor = new System.Windows.Forms.Panel();
             this.bttnNormalS = new System.Windows.Forms.PictureBox();
@@ -54,6 +55,8 @@
             this.bttnRefresh = new System.Windows.Forms.Button();
             this.bttnChange = new System.Windows.Forms.Button();
             this.bttnAdd = new System.Windows.Forms.Button();
+            this.labelActiveUsr = new System.Windows.Forms.Label();
+            this.labelLIS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bttnRollUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnFullS)).BeginInit();
@@ -124,11 +127,23 @@
             this.panelTop.TabIndex = 2;
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
+            // labelActiveUser
+            // 
+            this.labelActiveUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelActiveUser.AutoSize = true;
+            this.labelActiveUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelActiveUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.labelActiveUser.Location = new System.Drawing.Point(111, 643);
+            this.labelActiveUser.Name = "labelActiveUser";
+            this.labelActiveUser.Size = new System.Drawing.Size(38, 17);
+            this.labelActiveUser.TabIndex = 3;
+            this.labelActiveUser.Text = "label";
+            // 
             // labelPanelUser
             // 
             this.labelPanelUser.AutoSize = true;
             this.labelPanelUser.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPanelUser.Location = new System.Drawing.Point(484, 18);
+            this.labelPanelUser.Location = new System.Drawing.Point(526, 18);
             this.labelPanelUser.Name = "labelPanelUser";
             this.labelPanelUser.Size = new System.Drawing.Size(118, 18);
             this.labelPanelUser.TabIndex = 1;
@@ -165,7 +180,7 @@
             this.panelCenter.Controls.Add(this.tabMenu);
             this.panelCenter.Location = new System.Drawing.Point(0, 44);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1171, 548);
+            this.panelCenter.Size = new System.Drawing.Size(1171, 559);
             this.panelCenter.TabIndex = 5;
             // 
             // tabMenu
@@ -179,7 +194,7 @@
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.Padding = new System.Drawing.Point(10, 3);
             this.tabMenu.SelectedIndex = 0;
-            this.tabMenu.Size = new System.Drawing.Size(1171, 548);
+            this.tabMenu.Size = new System.Drawing.Size(1171, 559);
             this.tabMenu.TabIndex = 0;
             this.tabMenu.SelectedIndexChanged += new System.EventHandler(this.tabMenu_SelectedIndexChanged);
             // 
@@ -188,7 +203,7 @@
             this.pageRequests.Controls.Add(this.dataTableRequests);
             this.pageRequests.Location = new System.Drawing.Point(4, 28);
             this.pageRequests.Name = "pageRequests";
-            this.pageRequests.Size = new System.Drawing.Size(1163, 516);
+            this.pageRequests.Size = new System.Drawing.Size(1163, 527);
             this.pageRequests.TabIndex = 1;
             this.pageRequests.Text = "Заявки";
             this.pageRequests.UseVisualStyleBackColor = true;
@@ -221,7 +236,7 @@
             this.dataTableRequests.Location = new System.Drawing.Point(0, 0);
             this.dataTableRequests.Name = "dataTableRequests";
             this.dataTableRequests.ReadOnly = true;
-            this.dataTableRequests.Size = new System.Drawing.Size(1163, 516);
+            this.dataTableRequests.Size = new System.Drawing.Size(1163, 527);
             this.dataTableRequests.TabIndex = 1;
             this.dataTableRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableRequests_CellClick);
             // 
@@ -230,7 +245,7 @@
             this.pageClients.Controls.Add(this.dataTableClients);
             this.pageClients.Location = new System.Drawing.Point(4, 28);
             this.pageClients.Name = "pageClients";
-            this.pageClients.Size = new System.Drawing.Size(1163, 516);
+            this.pageClients.Size = new System.Drawing.Size(1163, 527);
             this.pageClients.TabIndex = 0;
             this.pageClients.Text = "Клиенты";
             this.pageClients.UseVisualStyleBackColor = true;
@@ -263,7 +278,7 @@
             this.dataTableClients.Location = new System.Drawing.Point(0, 0);
             this.dataTableClients.Name = "dataTableClients";
             this.dataTableClients.ReadOnly = true;
-            this.dataTableClients.Size = new System.Drawing.Size(1163, 516);
+            this.dataTableClients.Size = new System.Drawing.Size(1163, 527);
             this.dataTableClients.TabIndex = 0;
             this.dataTableClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableClients_CellClick);
             // 
@@ -272,7 +287,7 @@
             this.pageServices.Controls.Add(this.dataTableServices);
             this.pageServices.Location = new System.Drawing.Point(4, 28);
             this.pageServices.Name = "pageServices";
-            this.pageServices.Size = new System.Drawing.Size(1163, 516);
+            this.pageServices.Size = new System.Drawing.Size(1163, 527);
             this.pageServices.TabIndex = 2;
             this.pageServices.Text = "Услуги";
             this.pageServices.UseVisualStyleBackColor = true;
@@ -304,7 +319,7 @@
             this.dataTableServices.Location = new System.Drawing.Point(0, 0);
             this.dataTableServices.Name = "dataTableServices";
             this.dataTableServices.ReadOnly = true;
-            this.dataTableServices.Size = new System.Drawing.Size(1163, 516);
+            this.dataTableServices.Size = new System.Drawing.Size(1163, 527);
             this.dataTableServices.TabIndex = 2;
             this.dataTableServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableServices_CellClick);
             // 
@@ -313,7 +328,7 @@
             this.labelSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSearch.AutoSize = true;
             this.labelSearch.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.labelSearch.Location = new System.Drawing.Point(857, 601);
+            this.labelSearch.Location = new System.Drawing.Point(857, 612);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(53, 19);
             this.labelSearch.TabIndex = 11;
@@ -323,7 +338,7 @@
             // 
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSearch.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbSearch.Location = new System.Drawing.Point(916, 600);
+            this.tbSearch.Location = new System.Drawing.Point(916, 611);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(243, 21);
             this.tbSearch.TabIndex = 6;
@@ -339,7 +354,7 @@
             this.bttnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnRefresh.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnRefresh.Location = new System.Drawing.Point(396, 596);
+            this.bttnRefresh.Location = new System.Drawing.Point(396, 607);
             this.bttnRefresh.Margin = new System.Windows.Forms.Padding(1);
             this.bttnRefresh.Name = "bttnRefresh";
             this.bttnRefresh.Size = new System.Drawing.Size(190, 29);
@@ -360,7 +375,7 @@
             this.bttnChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnChange.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnChange.Location = new System.Drawing.Point(203, 596);
+            this.bttnChange.Location = new System.Drawing.Point(203, 607);
             this.bttnChange.Margin = new System.Windows.Forms.Padding(1);
             this.bttnChange.Name = "bttnChange";
             this.bttnChange.Size = new System.Drawing.Size(190, 29);
@@ -381,7 +396,7 @@
             this.bttnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnAdd.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnAdd.Location = new System.Drawing.Point(10, 596);
+            this.bttnAdd.Location = new System.Drawing.Point(10, 607);
             this.bttnAdd.Margin = new System.Windows.Forms.Padding(1);
             this.bttnAdd.Name = "bttnAdd";
             this.bttnAdd.Size = new System.Drawing.Size(190, 29);
@@ -392,12 +407,39 @@
             this.bttnAdd.MouseEnter += new System.EventHandler(this.bttnAdd_MouseEnter);
             this.bttnAdd.MouseLeave += new System.EventHandler(this.bttnAdd_MouseLeave);
             // 
+            // labelActiveUsr
+            // 
+            this.labelActiveUsr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelActiveUsr.AutoSize = true;
+            this.labelActiveUsr.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelActiveUsr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
+            this.labelActiveUsr.Location = new System.Drawing.Point(12, 643);
+            this.labelActiveUsr.Name = "labelActiveUsr";
+            this.labelActiveUsr.Size = new System.Drawing.Size(94, 16);
+            this.labelActiveUsr.TabIndex = 3;
+            this.labelActiveUsr.Text = "Пользователь:";
+            // 
+            // labelLIS
+            // 
+            this.labelLIS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLIS.AutoSize = true;
+            this.labelLIS.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelLIS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(199)))), ((int)(((byte)(199)))));
+            this.labelLIS.Location = new System.Drawing.Point(429, 643);
+            this.labelLIS.Name = "labelLIS";
+            this.labelLIS.Size = new System.Drawing.Size(313, 17);
+            this.labelLIS.TabIndex = 3;
+            this.labelLIS.Text = "Лабораторная информационная система ©2021";
+            // 
             // frmMenuUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1171, 635);
+            this.ClientSize = new System.Drawing.Size(1171, 665);
+            this.Controls.Add(this.labelActiveUsr);
+            this.Controls.Add(this.labelLIS);
+            this.Controls.Add(this.labelActiveUser);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.bttnRefresh);
@@ -451,5 +493,8 @@
         private System.Windows.Forms.Button bttnRefresh;
         private System.Windows.Forms.Button bttnChange;
         private System.Windows.Forms.Button bttnAdd;
+        private System.Windows.Forms.Label labelActiveUser;
+        private System.Windows.Forms.Label labelActiveUsr;
+        private System.Windows.Forms.Label labelLIS;
     }
 }

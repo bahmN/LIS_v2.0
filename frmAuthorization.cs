@@ -66,7 +66,7 @@ namespace LIS
             string Password = Hashing.HashPassword(tbPassword.Text);
 
             if (chckBoxAdm.Checked == true) {
-                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль FROM администраторы WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
+                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль FROM администратор WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
                 MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
                 DataTable dtSelect = new DataTable();
                 daSelect.Fill(dtSelect);
@@ -85,7 +85,12 @@ namespace LIS
                 DataTable dtSelect = new DataTable();
                 daSelect.Fill(dtSelect);
                 if (dtSelect.Rows.Count > 0) {
-                    frmMenuUser FMU = new frmMenuUser();
+                    //Active user
+                    MySqlCommand cUserName = new MySqlCommand("SELECT ФИО FROM пользователь WHERE Логин = '" + tbLogin.Text + "'", connection);
+                    object userNameObj = cUserName.ExecuteScalar();
+                    string userName = userNameObj.ToString();
+
+                    frmMenuUser FMU = new frmMenuUser(userName);
                     FMU.ShowDialog();
                 }
                 else {

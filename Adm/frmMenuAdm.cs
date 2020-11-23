@@ -41,6 +41,7 @@ namespace LIS
 
         private void bttnClose_Click(object sender, EventArgs e)
         {
+            frmAuthorization.connection.Close();
             Close();
         }
 
@@ -313,7 +314,7 @@ namespace LIS
                     dataTableUsers.Columns[0].Width = 35;
 
                     //Administrations
-                    MySqlDataAdapter daAdm = new MySqlDataAdapter("SELECT `ID администратора`, Логин, ФИО FROM администраторы", frmAuthorization.connection);
+                    MySqlDataAdapter daAdm = new MySqlDataAdapter("SELECT `ID администратора`, Логин, ФИО FROM администратор", frmAuthorization.connection);
                     DataTable dtAdm = new DataTable();
                     daAdm.Fill(dtAdm);
                     dataTableAdm.DataSource = dtAdm;

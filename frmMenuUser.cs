@@ -10,9 +10,10 @@ namespace LIS
 {
     public partial class frmMenuUser : Form
     {
-        public frmMenuUser()
+        public frmMenuUser(string name)
         {
             InitializeComponent();
+            labelActiveUser.Text = name;
         }
         /*
          *-------------------------------Param move form--------------------------
@@ -37,7 +38,8 @@ namespace LIS
         //---------------------------------------------------------------------------------------
         private void bttnClose_Click(object sender, EventArgs e)
         {
-            Close();
+            frmAuthorization.connection.Close();
+            Close();            
         }
 
         /*
@@ -47,6 +49,7 @@ namespace LIS
         {
             WindowState = FormWindowState.Maximized;
             labelPanelUser.Left = ( ClientSize.Width - labelPanelUser.Width ) / 2;
+            labelLIS.Left = ( ClientSize.Width - labelLIS.Width ) / 2;
             bttnFullS.Visible = false;
             bttnNormalS.Visible = true;
         }
@@ -54,6 +57,7 @@ namespace LIS
         {
             WindowState = FormWindowState.Normal;
             labelPanelUser.Left = ( ClientSize.Width - labelPanelUser.Width ) / 2;
+            labelLIS.Left = ( ClientSize.Width - labelLIS.Width ) / 2;
             bttnNormalS.Visible = false;
             bttnFullS.Visible = true;
         }

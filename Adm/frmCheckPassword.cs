@@ -27,7 +27,7 @@ namespace LIS.Adm
         {
             string Password = Hashing.HashPassword(tbPassword.Text);
 
-            MySqlCommand cSelect = new MySqlCommand("SELECT * FROM администраторы WHERE Пароль= '" + Password + "'", frmAuthorization.connection);
+            MySqlCommand cSelect = new MySqlCommand("SELECT * FROM администратор WHERE Пароль= '" + Password + "'", frmAuthorization.connection);
             MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
             DataTable dtSelect = new DataTable();
             daSelect.Fill(dtSelect);
