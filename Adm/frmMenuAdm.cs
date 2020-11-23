@@ -305,7 +305,7 @@ namespace LIS
                 FCP.ShowDialog();
                 if (FCP.DialogResult == DialogResult.OK) {
                     //Users
-                    MySqlDataAdapter daUsers = new MySqlDataAdapter("SELECT ID, Логин, ФИО FROM пользователь", frmAuthorization.connection);
+                    MySqlDataAdapter daUsers = new MySqlDataAdapter("SELECT `ID пользователя`, Логин, ФИО FROM пользователь WHERE Роль= 'Пользователь'", frmAuthorization.connection);
                     DataTable dtUsers = new DataTable();
                     daUsers.Fill(dtUsers);
                     dataTableUsers.DataSource = dtUsers;
@@ -314,7 +314,7 @@ namespace LIS
                     dataTableUsers.Columns[0].Width = 35;
 
                     //Administrations
-                    MySqlDataAdapter daAdm = new MySqlDataAdapter("SELECT `ID администратора`, Логин, ФИО FROM администратор", frmAuthorization.connection);
+                    MySqlDataAdapter daAdm = new MySqlDataAdapter("SELECT `ID пользователя`, Логин, ФИО FROM пользователь WHERE Роль= 'Администратор'", frmAuthorization.connection);
                     DataTable dtAdm = new DataTable();
                     daAdm.Fill(dtAdm);
                     dataTableAdm.DataSource = dtAdm;

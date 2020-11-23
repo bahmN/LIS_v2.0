@@ -1,5 +1,4 @@
-﻿using LIS.Errors;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
@@ -27,7 +26,7 @@ namespace LIS.Adm
         {
             string Password = Hashing.HashPassword(tbPassword.Text);
 
-            MySqlCommand cSelect = new MySqlCommand("SELECT * FROM администратор WHERE Пароль= '" + Password + "'", frmAuthorization.connection);
+            MySqlCommand cSelect = new MySqlCommand("SELECT * FROM пользователь WHERE Пароль= '" + Password + "'", frmAuthorization.connection);
             MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
             DataTable dtSelect = new DataTable();
             daSelect.Fill(dtSelect);
