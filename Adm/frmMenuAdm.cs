@@ -211,6 +211,7 @@ namespace LIS
         {
             bttnDeleteUser.ForeColor = DefaultForeColor;
         }
+        //Shadows
         protected override CreateParams CreateParams
         {
             get
@@ -282,7 +283,7 @@ namespace LIS
                 dataTableServices.RowHeadersVisible = false; // Hide the display of the left column
                 dataTableServices.AllowUserToAddRows = false; // Hide the display of the bottom column
                 dataTableServices.Columns[0].Width = 300;
-                dataTableServices.Columns[1].Width = 75;
+                dataTableServices.Columns[1].Width = 90;
                 dataTableServices.Columns[2].Width = 170;
                 bttnAdd.Enabled = true;
                 bttnChange.Enabled = true;
@@ -360,7 +361,6 @@ namespace LIS
                     ErrorClient EC = new ErrorClient();
                     EC.Show();
                 }
-
             }
             else if (tabMenu.SelectedTab == pageRequests) {
                 frmAddClient FAC = new frmAddClient();
@@ -453,6 +453,7 @@ namespace LIS
                     frmAddUser FAU = new frmAddUser(dataTableUsers.SelectedRows[0].Cells[0].Value.ToString());
                     FAU.tbLogin.Text = dataTableUsers.SelectedRows[0].Cells[1].Value.ToString();
                     FAU.tbFN.Text = dataTableUsers.SelectedRows[0].Cells[2].Value.ToString();
+                    FAU.chckBoxAdm.Visible = false;
                     FAU.bttnOK.Text = "Изменить";
                     FAU.labelPanelAdm.Text = "Изменить данные пользователя";
                     FAU.labelPanelAdm.Left = ( ClientSize.Width - FAU.labelPanelAdm.Width ) / 2;

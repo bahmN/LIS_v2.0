@@ -23,6 +23,7 @@ namespace LIS
             bttnOK.Text = "Изменить";
             labelPanelAdm.Text = "Изменить данные";
             labelPanelAdm.Left = ( ClientSize.Width - labelPanelAdm.Width ) / 2;
+            datePickerBirthday.MaxDate = DateTime.Now;
         }
         static private string Passport;
         /*
@@ -75,7 +76,8 @@ namespace LIS
                 MySqlCommand cChng = new MySqlCommand("UPDATE клиент SET `Номер и серия паспорта`= '" + tbPassport.Text + "', ФИО= '" + tbFN.Text + "', `Дата рождения`= '" + datePickerBirthday.Text + "', " +
                     "СНИЛС= '" + tbSNILS.Text + "', `Номер телефона`= '" + tbNumbPhone.Text + "', `Адрес проживания`= '" + tbAdress.Text + "', `e-mail`= '" + tbEMail.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
                 MySqlCommand cChng2 = new MySqlCommand("UPDATE заявка SET `Номер и серия паспорта`= '" + tbPassport.Text + "' WHERE `Номер и серия паспорта`= '" + Passport + "'", frmAuthorization.connection);
-                if (cChng.ExecuteNonQuery() == 1 && cChng2.ExecuteNonQuery() == 1) {
+                if (cChng.ExecuteNonQuery() == 1) {
+                    cChng2.ExecuteNonQuery();
                     DialogResult = DialogResult.OK;
                 }
             }

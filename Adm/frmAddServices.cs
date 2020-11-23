@@ -42,7 +42,8 @@ namespace LIS.Adm
                 MySqlCommand cChng = new MySqlCommand("UPDATE услуги SET `Название анализа`= '" + tbName.Text + "', Цена= '" + tbPrice.Text + "', " +
                     "`Срок выполнения`= '" + tbTerm.Text + "', Рекомендации= '" + tbRecommendation.Text + "' WHERE `Название анализа`= '" + Name + "'", frmAuthorization.connection);
                 MySqlCommand cChng2 = new MySqlCommand("UPDATE заявка SET `Название анализа`= '" + tbName.Text + "' WHERE `Название анализа`= '" + Name + "'", frmAuthorization.connection);
-                if (cChng.ExecuteNonQuery() == 1 && cChng2.ExecuteNonQuery() == 1) {
+                if (cChng.ExecuteNonQuery() == 1) {
+                    cChng2.ExecuteNonQuery();
                     DialogResult = DialogResult.OK;
                 }
             }

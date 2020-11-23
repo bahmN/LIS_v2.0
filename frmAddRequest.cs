@@ -10,7 +10,7 @@ namespace LIS
     {
         public frmAddRequest(string passport)
         {
-            InitializeComponent();            
+            InitializeComponent();
             Passport = passport;
             datePickerRequest.Value = DateTime.Now;
             datePickerRequest.MaxDate = DateTime.Now;
@@ -86,6 +86,12 @@ namespace LIS
                 cbNameAnalysis.DataSource = dtServices;
                 cbNameAnalysis.ValueMember = "Название анализа";
                 cbNameAnalysis.SelectedIndex = -1;
+
+                labelResult.Visible = false;
+                labelDateResult.Visible = false;
+                tbResult.Visible = false;
+                dateTimeResult.Visible = false;
+                Height = 159;
             }
             else if (bttnOK.Text == "Подтвердить") {
                 MySqlDataAdapter daServices = new MySqlDataAdapter("SELECT `Название анализа` FROM услуги", frmAuthorization.connection);

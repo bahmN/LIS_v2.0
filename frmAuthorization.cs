@@ -66,7 +66,7 @@ namespace LIS
             string Password = Hashing.HashPassword(tbPassword.Text);
 
             if (chckBoxAdm.Checked == true) {
-                MySqlCommand cSelect = new MySqlCommand("SELECT * FROM администраторы WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
+                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль FROM администраторы WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
                 MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
                 DataTable dtSelect = new DataTable();
                 daSelect.Fill(dtSelect);
@@ -80,18 +80,18 @@ namespace LIS
                 }
             }
             else {
-                //MySqlCommand cSelect = new MySqlCommand("SELECT * FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
-                //MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
-                //DataTable dtSelect = new DataTable();
-                //daSelect.Fill(dtSelect);
-                //if (dtSelect.Rows.Count > 0) {
+                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "'", connection);
+                MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
+                DataTable dtSelect = new DataTable();
+                daSelect.Fill(dtSelect);
+                if (dtSelect.Rows.Count > 0) {
                     frmMenuUser FMU = new frmMenuUser();
                     FMU.ShowDialog();
-                //}
-                //else {
-                //    ErrorAuthorization EA = new ErrorAuthorization();
-                //    EA.Show();
-                //}
+                }
+                else {
+                    ErrorAuthorization EA = new ErrorAuthorization();
+                    EA.Show();
+                }
             }
         }
         protected override CreateParams CreateParams

@@ -262,6 +262,6 @@
         public System.Windows.Forms.Button bttnOK;
         public System.Windows.Forms.TextBox tbLogin;
         public System.Windows.Forms.TextBox tbFN;
-        private System.Windows.Forms.CheckBox chckBoxAdm;
+        public System.Windows.Forms.CheckBox chckBoxAdm;
     }
 }

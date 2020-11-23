@@ -52,7 +52,6 @@
             this.labelSearch = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.bttnRefresh = new System.Windows.Forms.Button();
-            this.bttnDelete = new System.Windows.Forms.Button();
             this.bttnChange = new System.Windows.Forms.Button();
             this.bttnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bttnRollUp)).BeginInit();
@@ -182,6 +181,7 @@
             this.tabMenu.SelectedIndex = 0;
             this.tabMenu.Size = new System.Drawing.Size(1171, 548);
             this.tabMenu.TabIndex = 0;
+            this.tabMenu.SelectedIndexChanged += new System.EventHandler(this.tabMenu_SelectedIndexChanged);
             // 
             // pageRequests
             // 
@@ -223,6 +223,7 @@
             this.dataTableRequests.ReadOnly = true;
             this.dataTableRequests.Size = new System.Drawing.Size(1163, 516);
             this.dataTableRequests.TabIndex = 1;
+            this.dataTableRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableRequests_CellClick);
             // 
             // pageClients
             // 
@@ -264,6 +265,7 @@
             this.dataTableClients.ReadOnly = true;
             this.dataTableClients.Size = new System.Drawing.Size(1163, 516);
             this.dataTableClients.TabIndex = 0;
+            this.dataTableClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableClients_CellClick);
             // 
             // pageServices
             // 
@@ -304,6 +306,7 @@
             this.dataTableServices.ReadOnly = true;
             this.dataTableServices.Size = new System.Drawing.Size(1163, 516);
             this.dataTableServices.TabIndex = 2;
+            this.dataTableServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTableServices_CellClick);
             // 
             // labelSearch
             // 
@@ -324,6 +327,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(243, 21);
             this.tbSearch.TabIndex = 6;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // bttnRefresh
             // 
@@ -335,35 +339,16 @@
             this.bttnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
             this.bttnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttnRefresh.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnRefresh.Location = new System.Drawing.Point(589, 596);
+            this.bttnRefresh.Location = new System.Drawing.Point(396, 596);
             this.bttnRefresh.Margin = new System.Windows.Forms.Padding(1);
             this.bttnRefresh.Name = "bttnRefresh";
             this.bttnRefresh.Size = new System.Drawing.Size(190, 29);
             this.bttnRefresh.TabIndex = 7;
             this.bttnRefresh.Text = "Обновить БД";
             this.bttnRefresh.UseVisualStyleBackColor = true;
+            this.bttnRefresh.Click += new System.EventHandler(this.bttnRefresh_Click);
             this.bttnRefresh.MouseEnter += new System.EventHandler(this.bttnRefresh_MouseEnter);
             this.bttnRefresh.MouseLeave += new System.EventHandler(this.bttnRefresh_MouseLeave);
-            // 
-            // bttnDelete
-            // 
-            this.bttnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bttnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bttnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bttnDelete.FlatAppearance.BorderSize = 0;
-            this.bttnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.bttnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(25)))), ((int)(((byte)(47)))));
-            this.bttnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnDelete.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.bttnDelete.Location = new System.Drawing.Point(396, 596);
-            this.bttnDelete.Margin = new System.Windows.Forms.Padding(1);
-            this.bttnDelete.Name = "bttnDelete";
-            this.bttnDelete.Size = new System.Drawing.Size(190, 29);
-            this.bttnDelete.TabIndex = 8;
-            this.bttnDelete.Text = "Удалить";
-            this.bttnDelete.UseVisualStyleBackColor = true;
-            this.bttnDelete.MouseEnter += new System.EventHandler(this.bttnDelete_MouseEnter);
-            this.bttnDelete.MouseLeave += new System.EventHandler(this.bttnDelete_MouseLeave);
             // 
             // bttnChange
             // 
@@ -382,6 +367,7 @@
             this.bttnChange.TabIndex = 9;
             this.bttnChange.Text = "Изменить";
             this.bttnChange.UseVisualStyleBackColor = true;
+            this.bttnChange.Click += new System.EventHandler(this.bttnChange_Click);
             this.bttnChange.MouseEnter += new System.EventHandler(this.bttnChange_MouseEnter);
             this.bttnChange.MouseLeave += new System.EventHandler(this.bttnChange_MouseLeave);
             // 
@@ -402,6 +388,7 @@
             this.bttnAdd.TabIndex = 10;
             this.bttnAdd.Text = "Добавить";
             this.bttnAdd.UseVisualStyleBackColor = true;
+            this.bttnAdd.Click += new System.EventHandler(this.bttnAdd_Click);
             this.bttnAdd.MouseEnter += new System.EventHandler(this.bttnAdd_MouseEnter);
             this.bttnAdd.MouseLeave += new System.EventHandler(this.bttnAdd_MouseLeave);
             // 
@@ -414,7 +401,6 @@
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.bttnRefresh);
-            this.Controls.Add(this.bttnDelete);
             this.Controls.Add(this.bttnChange);
             this.Controls.Add(this.bttnAdd);
             this.Controls.Add(this.panelCenter);
@@ -423,6 +409,7 @@
             this.Name = "frmMenuUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuUser";
+            this.Load += new System.EventHandler(this.frmMenuUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bttnRollUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnFullS)).EndInit();
@@ -462,7 +449,6 @@
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button bttnRefresh;
-        private System.Windows.Forms.Button bttnDelete;
         private System.Windows.Forms.Button bttnChange;
         private System.Windows.Forms.Button bttnAdd;
     }
