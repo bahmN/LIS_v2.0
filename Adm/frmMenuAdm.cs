@@ -582,8 +582,8 @@ namespace LIS
             ProcessStartInfo SI = new ProcessStartInfo();
             SI.FileName = "cmd.exe";
             saveFile.Filter = "MySQL Text File|*.sql";
-            string dateDump = DateTime.Now.ToString();
-            saveFile.FileName = "Backup LIS " + dateDump;
+            saveFile.FileName = "Backup LIS";
+
             if (saveFile.ShowDialog() == DialogResult.OK) {
                 SI.Arguments = "/c \"\"C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\MySQLdump.exe\" -uroot -h127.0.0.1 -P3306 -pVfhnvfhn23@ lis > \"" + saveFile.FileName + "\"\"";
                 PR.StartInfo = SI;
@@ -598,8 +598,9 @@ namespace LIS
             Process PR = new Process();
             ProcessStartInfo SI = new ProcessStartInfo();
             SI.FileName = "cmd.exe";
+
             if (openFile.ShowDialog() == DialogResult.OK) {
-                SI.Arguments = "/c \"\"C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\MySQLdump.exe\" -uroot -h127.0.0.1 -P3306 -pVfhnvfhn23@ lis > \"" + openFile.FileName + "\"\"";
+                SI.Arguments = "/c \"\"C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin\\MySQL.exe\" -uroot -h127.0.0.1 -P3306 -pVfhnvfhn23@ lis < \"" + openFile.FileName + "\"\"";
                 PR.StartInfo = SI;
                 PR.Start();
             }
