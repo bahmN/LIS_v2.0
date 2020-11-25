@@ -104,6 +104,7 @@
     <Compile Include="Adm\frmCheckPassword.Designer.cs">
       <DependentUpon>frmCheckPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adm\SQLRequestFullNameUser.cs" />
     <Compile Include="Adm\Hashing.cs" />
     <Compile Include="Adm\frmAddUser.cs">
       <SubType>Form</SubType>

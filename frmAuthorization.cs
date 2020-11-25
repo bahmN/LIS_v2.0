@@ -66,31 +66,31 @@ namespace LIS
             string Password = Hashing.HashPassword(tbPassword.Text);
 
             if (chckBoxAdm.Checked == true) {
-                //MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль, Роль FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "', Роль= 'Администратор'", connection);
-                //MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
-                //DataTable dtSelect = new DataTable();
-                //daSelect.Fill(dtSelect);
-                //if (dtSelect.Rows.Count > 0) {
+                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль, Роль FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "' AND Роль= 'Администратор'", connection);
+                MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
+                DataTable dtSelect = new DataTable();
+                daSelect.Fill(dtSelect);
+                if (dtSelect.Rows.Count > 0) {
                     frmMenuAdm FMA = new frmMenuAdm();
                     FMA.ShowDialog();
-                //}
-                //else {
-                //    ErrorAuthorization EA = new ErrorAuthorization();
-                //    EA.Show();
-                //}
+                }
+                else {
+                    ErrorAuthorization EA = new ErrorAuthorization();
+                    EA.Show();
+                }
             }
             else {
-                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "', Роль= 'Пользователь'", connection);
+                MySqlCommand cSelect = new MySqlCommand("SELECT Логин, Пароль, Роль FROM пользователь WHERE Логин= '" + tbLogin.Text + "' AND Пароль= '" + Password + "' AND Роль= 'Пользователь'", connection);
                 MySqlDataAdapter daSelect = new MySqlDataAdapter(cSelect);
                 DataTable dtSelect = new DataTable();
                 daSelect.Fill(dtSelect);
                 if (dtSelect.Rows.Count > 0) {
                     //Active user
-                    MySqlCommand cUserName = new MySqlCommand("SELECT ФИО FROM пользователь WHERE Логин = '" + tbLogin.Text + "'", connection);
-                    object userNameObj = cUserName.ExecuteScalar();
-                    string userName = userNameObj.ToString();
+                    MySqlCommand cUserID = new MySqlCommand("SELECT `ID пользователя` FROM пользователь WHERE Логин = '" + tbLogin.Text + "'", connection);
+                    object userIDObj = cUserID.ExecuteScalar();
+                    string userID = userIDObj.ToString();
 
-                    frmMenuUser FMU = new frmMenuUser(userName);
+                    frmMenuUser FMU = new frmMenuUser(userID);
                     FMU.ShowDialog();
                 }
                 else {

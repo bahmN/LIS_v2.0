@@ -1,4 +1,5 @@
-﻿using LIS.Errors;
+﻿using LIS.Adm;
+using LIS.Errors;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -10,10 +11,11 @@ namespace LIS
 {
     public partial class frmMenuUser : Form
     {
-        public frmMenuUser(string name)
+        public frmMenuUser(string userID)
         {
             InitializeComponent();
-            labelActiveUser.Text = name;
+            string userFullName = SQLRequestFullNameUser.fullNameUser(userID);
+            labelActiveUser.Text = userFullName;
         }
         /*
          *-------------------------------Param move form--------------------------
