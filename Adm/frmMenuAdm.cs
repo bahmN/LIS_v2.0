@@ -12,10 +12,12 @@ namespace LIS
 {
     public partial class frmMenuAdm : Form
     {
-        public frmMenuAdm()
+        public frmMenuAdm(string userID)
         {
             InitializeComponent();
+            UserID = userID;
         }
+        static private string UserID;
 
         /*
          *-------------------------------Param move form--------------------------
@@ -254,13 +256,16 @@ namespace LIS
                 }
             }
             else if (tabMenu.SelectedTab == pageRequests) {
-                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT `№ заявки`, `Название анализа`, ФИО, клиент.`Номер и серия паспорта`, `Дата создания`,Результат,`Дата выполнения` FROM заявка, клиент " +
-                    "WHERE заявка.`Номер и серия паспорта` = клиент.`Номер и серия паспорта`", frmAuthorization.connection);
+                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT `№ заявки`, `Название анализа`, клиент.ФИО, клиент.`Номер и серия паспорта`, `Дата создания`,Результат,`Дата выполнения`, пользователь.ФИО, пользователь.`ID пользователя`FROM заявка, клиент, пользователь " +
+                    "WHERE заявка.`Номер и серия паспорта` = клиент.`Номер и серия паспорта` AND " +
+                    "заявка.`ID пользователя` = пользователь.`ID пользователя`", frmAuthorization.connection);
                 DataTable dtRequests = new DataTable();
                 daRequests.Fill(dtRequests);
                 dataTableRequests.DataSource = dtRequests;
                 dataTableRequests.RowHeadersVisible = false; // Hide the display of the left column
                 dataTableRequests.AllowUserToAddRows = false;// Hide the display of the bottom column
+                dataTableRequests.Columns[7].HeaderText = "ФИО пользователя";
+                dataTableRequests.Columns[8].Visible = false;
                 dataTableRequests.Columns[0].Width = 60;
                 bttnAdd.Enabled = true;
                 bttnChange.Enabled = true;
@@ -349,7 +354,7 @@ namespace LIS
         {
             if (tabMenu.SelectedTab == pageClients) {
                 try {
-                    frmAddRequest FAR = new frmAddRequest(dataTableClients.SelectedRows[0].Cells[0].Value.ToString());
+                    frmAddRequest FAR = new frmAddRequest(dataTableClients.SelectedRows[0].Cells[0].Value.ToString(), UserID);
                     FAR.bttnOK.Text = "Добавить";
                     FAR.labelPanelReq.Text = "Добавить заявку";
                     FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
@@ -364,7 +369,7 @@ namespace LIS
                 }
             }
             else if (tabMenu.SelectedTab == pageRequests) {
-                frmAddClient FAC = new frmAddClient();
+                frmAddClient FAC = new frmAddClient(UserID, null);
                 FAC.ShowDialog();
                 if (FAC.DialogResult == DialogResult.OK) {
                     bttnRefresh_Click(sender, e);
@@ -398,7 +403,7 @@ namespace LIS
         {
             try {
                 if (tabMenu.SelectedTab == pageClients) {
-                    frmAddClient FAC = new frmAddClient(dataTableClients.SelectedRows[0].Cells[0].Value.ToString());
+                    frmAddClient FAC = new frmAddClient(dataTableClients.SelectedRows[0].Cells[0].Value.ToString(), UserID);
                     FAC.tbPassport.Text = dataTableClients.SelectedRows[0].Cells[0].Value.ToString();
                     FAC.tbFN.Text = dataTableClients.SelectedRows[0].Cells[1].Value.ToString();
                     FAC.datePickerBirthday.Text = dataTableClients.SelectedRows[0].Cells[2].Value.ToString();
@@ -412,7 +417,7 @@ namespace LIS
                     }
                 }
                 else if (tabMenu.SelectedTab == pageRequests) {
-                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[0].Value.ToString());
+                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[0].Value.ToString(), UserID);
                     FAR.cbNameAnalysis.Text = dataTableRequests.SelectedRows[0].Cells[1].Value.ToString();
                     FAR.datePickerRequest.Text = dataTableRequests.SelectedRows[0].Cells[4].Value.ToString();
                     FAR.tbResult.Text = dataTableRequests.SelectedRows[0].Cells[5].Value.ToString();

@@ -7,13 +7,14 @@ namespace LIS
 {
     public partial class frmAddClient : Form
     {
-        public frmAddClient()
+        public frmAddClient(string userID, string a)
         {
             InitializeComponent();
             bttnOK.Text = "Далее";
             labelPanelAdm.Text = "Добавить клиента";
             labelPanelAdm.Left = ( ClientSize.Width - labelPanelAdm.Width ) / 2;
             datePickerBirthday.MaxDate = DateTime.Now;
+            UserID = userID;
         }
 
         public frmAddClient(string passport)
@@ -26,6 +27,7 @@ namespace LIS
             datePickerBirthday.MaxDate = DateTime.Now;
         }
         static private string Passport;
+        static private string UserID;
         /*
          * ------------------------Design-------------------------
          */
@@ -65,7 +67,7 @@ namespace LIS
                 if (cAdd.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                     string passport = tbPassport.Text;
-                    frmAddRequest FAR = new frmAddRequest(passport);
+                    frmAddRequest FAR = new frmAddRequest(passport, UserID);
                     FAR.bttnOK.Text = "Добавить";
                     FAR.labelPanelReq.Text = "Добавить заявку";
                     FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
@@ -82,7 +84,7 @@ namespace LIS
                 }
             }
         }
-
+        static public string idUser { get; set; } //Variable for id user
         private void bttnClose_Click(object sender, EventArgs e)
         {
             Close();

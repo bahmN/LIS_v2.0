@@ -71,7 +71,12 @@ namespace LIS
                 DataTable dtSelect = new DataTable();
                 daSelect.Fill(dtSelect);
                 if (dtSelect.Rows.Count > 0) {
-                    frmMenuAdm FMA = new frmMenuAdm();
+                    //Active user
+                    MySqlCommand cUserID = new MySqlCommand("SELECT `ID пользователя` FROM пользователь WHERE Логин = '" + tbLogin.Text + "'", connection);
+                    object userIDObj = cUserID.ExecuteScalar();
+                    string userID = userIDObj.ToString();
+
+                    frmMenuAdm FMA = new frmMenuAdm(userID);
                     FMA.ShowDialog();
                 }
                 else {

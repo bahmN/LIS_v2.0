@@ -8,15 +8,17 @@ namespace LIS
 {
     public partial class frmAddRequest : Form
     {
-        public frmAddRequest(string passport)
+        public frmAddRequest(string passport,string userID)
         {
             InitializeComponent();
             Passport = passport;
             datePickerRequest.Value = DateTime.Now;
             datePickerRequest.MaxDate = DateTime.Now;
             dateTimeResult.MaxDate = DateTime.Now;
+            UserID = userID;
         }
         static private string Passport;
+        static private string UserID;
         /*
          * ------------------------Design-------------------------
          */
@@ -62,8 +64,8 @@ namespace LIS
         private void bttnOK_Click(object sender, EventArgs e)
         {
             if (bttnOK.Text == "Добавить") {
-                MySqlCommand cAdd = new MySqlCommand("INSERT INTO заявка(`Название анализа`, `Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения`) VALUES " +
-                    "('" + cbNameAnalysis.Text + "', '" + Passport + "', '" + datePickerRequest.Text + "', ' ', ' ')", frmAuthorization.connection);
+                MySqlCommand cAdd = new MySqlCommand("INSERT INTO заявка(`Название анализа`, `Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения`, `ID пользователя`) VALUES " +
+                    "('" + cbNameAnalysis.Text + "', '" + Passport + "', '" + datePickerRequest.Text + "', ' ', ' ', '" + UserID + "')", frmAuthorization.connection);
                 if (cAdd.ExecuteNonQuery() == 1) {
                     DialogResult = DialogResult.OK;
                 }

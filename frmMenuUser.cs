@@ -16,7 +16,9 @@ namespace LIS
             InitializeComponent();
             string userFullName = SQLRequestFullNameUser.fullNameUser(userID);
             labelActiveUser.Text = userFullName;
+            UserID = userID;
         }
+        static private string UserID;
         /*
          *-------------------------------Param move form--------------------------
          */
@@ -224,7 +226,7 @@ namespace LIS
         {
             if (tabMenu.SelectedTab == pageClients) {
                 try {
-                    frmAddRequest FAR = new frmAddRequest(dataTableClients.SelectedRows[0].Cells[0].Value.ToString());
+                    frmAddRequest FAR = new frmAddRequest(dataTableClients.SelectedRows[0].Cells[0].Value.ToString(), UserID);
                     FAR.bttnOK.Text = "Добавить";
                     FAR.labelPanelReq.Text = "Добавить заявку";
                     FAR.labelPanelReq.Left = ( ClientSize.Width - FAR.labelPanelReq.Width ) / 2;
@@ -239,7 +241,7 @@ namespace LIS
                 }
             }
             else if (tabMenu.SelectedTab == pageRequests) {
-                frmAddClient FAC = new frmAddClient();
+                frmAddClient FAC = new frmAddClient(UserID, null);
                 FAC.ShowDialog();
                 if (FAC.DialogResult == DialogResult.OK) {
                     bttnRefresh_Click(sender, e);
@@ -254,7 +256,7 @@ namespace LIS
         {
             try {
                 if (tabMenu.SelectedTab == pageRequests) {
-                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[0].Value.ToString());
+                    frmAddRequest FAR = new frmAddRequest(dataTableRequests.SelectedRows[0].Cells[0].Value.ToString(), UserID);
                     FAR.datePickerRequest.Text = dataTableRequests.SelectedRows[0].Cells[4].Value.ToString();
                     FAR.tbResult.Text = dataTableRequests.SelectedRows[0].Cells[5].Value.ToString();
                     FAR.bttnOK.Text = "Подтвердить";
