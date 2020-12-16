@@ -1,4 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿/*
+ * Запрос на отображение user full name, который авторизовался
+ */
+using MySql.Data.MySqlClient;
 
 namespace LIS.Adm
 {
