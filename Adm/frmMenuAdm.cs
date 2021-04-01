@@ -256,16 +256,18 @@ namespace LIS
                 }
             }
             else if (tabMenu.SelectedTab == pageRequests) {
-                MySqlDataAdapter daRequests = new MySqlDataAdapter("SELECT `№ заявки`, `Название анализа`, клиент.ФИО, клиент.`Номер и серия паспорта`, `Дата создания`,Результат,`Дата выполнения`, пользователь.ФИО, пользователь.`ID пользователя`FROM заявка, клиент, пользователь " +
-                    "WHERE заявка.`Номер и серия паспорта` = клиент.`Номер и серия паспорта` AND " +
-                    "заявка.`ID пользователя` = пользователь.`ID пользователя`", frmAuthorization.connection);
-                DataTable dtRequests = new DataTable();
-                daRequests.Fill(dtRequests);
-                dataTableRequests.DataSource = dtRequests;
+                MySqlDataAdapter daSearch = new MySqlDataAdapter("SELECT `№ заявки`,`Название анализа`, ФИО, заявка.`Номер и серия паспорта`, `Дата создания`, Результат, `Дата выполнения` FROM заявка, клиент " +
+                    "WHERE (заявка.`Номер и серия паспорта` = клиент.`Номер и серия паспорта`)" +
+                      "AND (`Название анализа` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR ФИО LIKE '%" + tbSearch.Text + "%' " +
+                      "OR `Дата создания` LIKE '%" + tbSearch.Text + "%' " +
+                      "OR Результат like '%" + tbSearch.Text + "%' " +
+                      "OR `Дата выполнения` LIKE '%" + tbSearch.Text + "%')", frmAuthorization.connection);
+                DataTable dtSearch = new DataTable();
+                daSearch.Fill(dtSearch);
+                dataTableRequests.DataSource = dtSearch;
                 dataTableRequests.RowHeadersVisible = false; // Hide the display of the left column
                 dataTableRequests.AllowUserToAddRows = false;// Hide the display of the bottom column
-                dataTableRequests.Columns[7].HeaderText = "ФИО пользователя";
-                dataTableRequests.Columns[8].Visible = false;
                 dataTableRequests.Columns[0].Width = 60;
                 bttnAdd.Enabled = true;
                 bttnChange.Enabled = true;

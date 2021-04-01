@@ -12,7 +12,6 @@ namespace LIS
         {
             InitializeComponent();
             Passport = passport;
-            datePickerRequest.Value = DateTime.Now;
             datePickerRequest.MaxDate = DateTime.Now;
             dateTimeResult.MaxDate = DateTime.Now;
             UserID = userID;
